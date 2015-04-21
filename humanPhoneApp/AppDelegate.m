@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  humanPhoneApp
 //
-//  Created by 横山祥平 on 2015/04/21.
+//  Created by Shohei Yokoyama on 2015/04/21.
 //  Copyright (c) 2015年 shohei. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "TopViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    TopViewController *top =[[TopViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                            initWithRootViewController:top];
+    [self.window addSubview:navigationController.view];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

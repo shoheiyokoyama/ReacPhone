@@ -10,11 +10,13 @@
 		6DBC7C5E1AE6774400F191CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C5D1AE6774400F191CA /* main.m */; };
 		6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C601AE6774400F191CA /* AppDelegate.m */; };
 		6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */; };
-		6DBC7C671AE6774400F191CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C661AE6774400F191CA /* ViewController.m */; };
+		6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C661AE6774400F191CA /* TopViewController.m */; };
 		6DBC7C6A1AE6774400F191CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C681AE6774400F191CA /* Main.storyboard */; };
 		6DBC7C6C1AE6774400F191CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C6B1AE6774400F191CA /* Images.xcassets */; };
 		6DBC7C6F1AE6774400F191CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */; };
 		6DBC7C7B1AE6774400F191CA /* humanPhoneAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */; };
+		6DBC7C871AE6810E00F191CA /* TobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C861AE6810E00F191CA /* TobView.m */; };
+		6DBC7C8B1AE686A500F191CA /* HumanPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +36,18 @@
 		6DBC7C5F1AE6774400F191CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DBC7C601AE6774400F191CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6DBC7C631AE6774400F191CA /* humanPhoneApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = humanPhoneApp.xcdatamodel; sourceTree = "<group>"; };
-		6DBC7C651AE6774400F191CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6DBC7C661AE6774400F191CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6DBC7C651AE6774400F191CA /* TopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
+		6DBC7C661AE6774400F191CA /* TopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
 		6DBC7C691AE6774400F191CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DBC7C6B1AE6774400F191CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6DBC7C6E1AE6774400F191CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DBC7C741AE6774400F191CA /* humanPhoneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = humanPhoneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C791AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = humanPhoneAppTests.m; sourceTree = "<group>"; };
+		6DBC7C851AE6810E00F191CA /* TobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TobView.h; sourceTree = "<group>"; };
+		6DBC7C861AE6810E00F191CA /* TobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TobView.m; sourceTree = "<group>"; };
+		6DBC7C891AE686A500F191CA /* HumanPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanPhoneViewController.h; sourceTree = "<group>"; };
+		6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanPhoneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +89,10 @@
 		6DBC7C5A1AE6774400F191CA /* humanPhoneApp */ = {
 			isa = PBXGroup;
 			children = (
+				6DBC7C881AE6811400F191CA /* View */,
+				6DBC7C841AE6807300F191CA /* Controller */,
 				6DBC7C5F1AE6774400F191CA /* AppDelegate.h */,
 				6DBC7C601AE6774400F191CA /* AppDelegate.m */,
-				6DBC7C651AE6774400F191CA /* ViewController.h */,
-				6DBC7C661AE6774400F191CA /* ViewController.m */,
 				6DBC7C681AE6774400F191CA /* Main.storyboard */,
 				6DBC7C6B1AE6774400F191CA /* Images.xcassets */,
 				6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */,
@@ -120,6 +126,26 @@
 				6DBC7C791AE6774400F191CA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6DBC7C841AE6807300F191CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6DBC7C651AE6774400F191CA /* TopViewController.h */,
+				6DBC7C661AE6774400F191CA /* TopViewController.m */,
+				6DBC7C891AE686A500F191CA /* HumanPhoneViewController.h */,
+				6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6DBC7C881AE6811400F191CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DBC7C851AE6810E00F191CA /* TobView.h */,
+				6DBC7C861AE6810E00F191CA /* TobView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */,
+				6DBC7C871AE6810E00F191CA /* TobView.m in Sources */,
 				6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */,
-				6DBC7C671AE6774400F191CA /* ViewController.m in Sources */,
+				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
 				6DBC7C5E1AE6774400F191CA /* main.m in Sources */,
+				6DBC7C8B1AE686A500F191CA /* HumanPhoneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +446,7 @@
 				6DBC7C801AE6774400F191CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6DBC7C811AE6774400F191CA /* Build configuration list for PBXNativeTarget "humanPhoneAppTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +455,7 @@
 				6DBC7C831AE6774400F191CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

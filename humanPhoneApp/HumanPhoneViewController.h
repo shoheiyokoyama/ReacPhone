@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HumanPhoneViewController.h
 //  humanPhoneApp
 //
 //  Created by 横山祥平 on 2015/04/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HumanPhoneViewController : UIViewController
 
 @end
-
