@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self testMethod];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -23,5 +24,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)testMethod{}
 @end
