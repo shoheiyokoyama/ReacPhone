@@ -16,5 +16,5 @@
 @end
 
 @interface TobView : UIView
-@property (nonatomic, weak) id<TopViewDelegate> delegate;
+@property (nonatomic) id<TopViewDelegate> delegate;
 @end

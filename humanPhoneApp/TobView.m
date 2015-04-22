@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _testLabel = [[UILabel alloc]initWithFrame:CGRectMake(100.0f, 100.0f, 300, 300)];
+        _testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 300, 300)];
         _testLabel.textAlignment = NSTextAlignmentCenter;
         _testLabel.text = @"tap here";
         _testLabel.backgroundColor = [UIColor blueColor];
@@ -34,8 +34,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _testLabel.frame = CGRectMake(100.0f, 100.0f, 300, 300);
-
+    _testLabel.frame = CGRectMake(10, 10, 300, 300);
 }
 
 # pragma marl - tap Action
@@ -46,7 +45,6 @@
     if ([_delegate respondsToSelector:@selector(tappedLabel)]) {
         [_delegate tappedLabel];
     }
-
 }
 
 @end

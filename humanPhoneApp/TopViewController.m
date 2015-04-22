@@ -11,17 +11,17 @@
 #import "HumanPhoneViewController.h"
 
 @interface TopViewController ()<TopViewDelegate>
-
+@property (nonatomic) TobView *top;
 @end
 
 @implementation TopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TobView *top = [[TobView alloc]initWithFrame:CGRectMake(0, 0, 700, 700)];
-    top.delegate = self;
+    _top = [[TobView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
+    _top.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:top];
+    [self.view addSubview:_top];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -31,6 +31,7 @@
     HumanPhoneViewController *con = [[HumanPhoneViewController alloc]init];
     [self.navigationController pushViewController:con animated:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
