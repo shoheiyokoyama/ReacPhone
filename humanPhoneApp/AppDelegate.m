@@ -22,7 +22,7 @@
     TopViewController *top =[[TopViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc]
                             initWithRootViewController:top];
-    [self.window addSubview:navigationController.view];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

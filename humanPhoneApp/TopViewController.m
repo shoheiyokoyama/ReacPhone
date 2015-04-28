@@ -11,14 +11,14 @@
 #import "HumanPhoneViewController.h"
 
 @interface TopViewController ()<TopViewDelegate>
-@property (nonatomic) TobView *top;
+@property (nonatomic, strong) TobView *top;
 @end
 
 @implementation TopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _top = [[TobView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
+    _top = [[TobView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
     _top.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_top];

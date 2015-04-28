@@ -2,22 +2,42 @@
 //  HumanPhoneViewController.m
 //  humanPhoneApp
 //
-//  Created by 横山祥平 on 2015/04/21.
+//  Created by Shohei Yokoyama on 2015/04/21.
 //  Copyright (c) 2015年 shohei. All rights reserved.
 //
 
 #import "HumanPhoneViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface HumanPhoneViewController ()
-
+@property CMMotionManager *manager;
 @end
 
 @implementation HumanPhoneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _manager = [[CMMotionManager alloc] init];
+    _manager.accelerometerUpdateInterval = 0.1;
     
-    // Do any additional setup after loading the view.
+    if (_manager.accelerometerAvailable) {
+        
+        CMAccelerometerHandler handler = ^(CMAccelerometerData *data, NSError *error) {
+            if (data.acceleration.x > 1.0) {
+                self.view.backgroundColor = [UIColor greenColor];
+            } else if (data.acceleration.y > 1.0) {
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                self.view.backgroundColor = [UIColor redColor];
+            }
+        };
+        [_manager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:handler];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_manager stopGyroUpdates];
 }
 
 - (void)didReceiveMemoryWarning {
