@@ -12,6 +12,8 @@
 	<dict>
 		<key>66ED720EA213D0B481C90384E7066634D2692005</key>
 		<string>https://github.com/shoheiyokoyama/humanPhone.git</string>
+		<key>FE54D08E543A400E95730120C855223557F38D81</key>
+		<string>https://github.com/shoheiyokoyama/HackHuaApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>humanPhoneApp.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>66ED720EA213D0B481C90384E7066634D2692005</key>
 		<string>../..</string>
+		<key>FE54D08E543A400E95730120C855223557F38D81</key>
+		<string>../../../HackHuaApp</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/shoheiyokoyama/humanPhone.git</string>
@@ -28,6 +32,14 @@
 	<string>66ED720EA213D0B481C90384E7066634D2692005</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FE54D08E543A400E95730120C855223557F38D81</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HackHuaApp</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

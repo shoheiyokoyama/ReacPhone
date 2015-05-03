@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D44CC181AF64402004B616B /* Robo01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC171AF64402004B616B /* Robo01.png */; };
+		6D44CC1A1AF64419004B616B /* Robo03.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC191AF64419004B616B /* Robo03.png */; };
+		6D44CC1C1AF64423004B616B /* Robo02.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1B1AF64423004B616B /* Robo02.png */; };
+		6D44CC1F1AF65099004B616B /* mec02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* mec02.mp3 */; };
+		6D44CC221AF650C6004B616B /* mec05.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC211AF650C6004B616B /* mec05.wav */; };
 		6DBC7C5E1AE6774400F191CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C5D1AE6774400F191CA /* main.m */; };
 		6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C601AE6774400F191CA /* AppDelegate.m */; };
 		6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */; };
@@ -30,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D44CC171AF64402004B616B /* Robo01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Robo01.png; path = ../HackHuaApp/Robo01.png; sourceTree = "<group>"; };
+		6D44CC191AF64419004B616B /* Robo03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Robo03.png; path = ../HackHuaApp/Robo03.png; sourceTree = "<group>"; };
+		6D44CC1B1AF64423004B616B /* Robo02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Robo02.png; path = ../HackHuaApp/Robo02.png; sourceTree = "<group>"; };
+		6D44CC1E1AF65099004B616B /* mec02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mec02.mp3; path = ../HackHuaApp/mec02.mp3; sourceTree = "<group>"; };
+		6D44CC211AF650C6004B616B /* mec05.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = mec05.wav; path = ../HackHuaApp/mec05.wav; sourceTree = "<group>"; };
+		6D44CC231AF6525E004B616B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6DBC7C581AE6774400F191CA /* humanPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = humanPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C5C1AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C5D1AE6774400F191CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,7 +62,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6DBC7C551AE6774400F191CA /* Frameworks */ = {
+		6D44CC251AF652A5004B616B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,12 +79,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D44CC1D1AF64426004B616B /* image */ = {
+			isa = PBXGroup;
+			children = (
+				6D44CC191AF64419004B616B /* Robo03.png */,
+				6D44CC1B1AF64423004B616B /* Robo02.png */,
+				6D44CC171AF64402004B616B /* Robo01.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		6D44CC201AF650AF004B616B /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				6D44CC1E1AF65099004B616B /* mec02.mp3 */,
+				6D44CC211AF650C6004B616B /* mec05.wav */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
 		6DBC7C4F1AE6774400F191CA = {
 			isa = PBXGroup;
 			children = (
+				6D44CC231AF6525E004B616B /* AudioToolbox.framework */,
 				6DBC7C5A1AE6774400F191CA /* humanPhoneApp */,
 				6DBC7C771AE6774400F191CA /* humanPhoneAppTests */,
 				6DBC7C591AE6774400F191CA /* Products */,
+				6D44CC1D1AF64426004B616B /* image */,
+				6D44CC201AF650AF004B616B /* sound */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,8 +189,8 @@
 			buildConfigurationList = 6DBC7C7E1AE6774400F191CA /* Build configuration list for PBXNativeTarget "humanPhoneApp" */;
 			buildPhases = (
 				6DBC7C541AE6774400F191CA /* Sources */,
-				6DBC7C551AE6774400F191CA /* Frameworks */,
 				6DBC7C561AE6774400F191CA /* Resources */,
+				6D44CC251AF652A5004B616B /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,9 +261,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D44CC1A1AF64419004B616B /* Robo03.png in Resources */,
+				6D44CC181AF64402004B616B /* Robo01.png in Resources */,
+				6D44CC1F1AF65099004B616B /* mec02.mp3 in Resources */,
 				6DBC7C6A1AE6774400F191CA /* Main.storyboard in Resources */,
 				6DBC7C6F1AE6774400F191CA /* LaunchScreen.xib in Resources */,
 				6DBC7C6C1AE6774400F191CA /* Images.xcassets in Resources */,
+				6D44CC1C1AF64423004B616B /* Robo02.png in Resources */,
+				6D44CC221AF650C6004B616B /* mec05.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +368,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				"IPHONEOS_DEPLOYMENT_TARGET[arch=*]" = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -366,6 +405,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				"IPHONEOS_DEPLOYMENT_TARGET[arch=*]" = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

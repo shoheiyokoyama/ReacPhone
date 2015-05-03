@@ -8,15 +8,30 @@
 
 #import "HumanPhoneViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface HumanPhoneViewController ()
+@interface HumanPhoneViewController ()<AVAudioPlayerDelegate>
 @property CMMotionManager *manager;
+@property (strong,nonatomic) AVAudioPlayer *firstPlayer;
+@property (strong,nonatomic) AVAudioPlayer *player;
 @end
 
 @implementation HumanPhoneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self playFirstSound];
+    
+    NSURL *soundFile = [NSURL fileURLWithPath:
+                        [[NSBundle mainBundle]pathForResource:@"mec05" ofType:@"wav"]];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+    self.player.delegate = self;
+    [self.player prepareToPlay];
+    
+    UIImageView *robo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Robo01.png"]];
+    robo.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:robo];
+    
     _manager = [[CMMotionManager alloc] init];
     _manager.accelerometerUpdateInterval = 0.1;
     
@@ -24,11 +39,13 @@
         
         CMAccelerometerHandler handler = ^(CMAccelerometerData *data, NSError *error) {
             if (data.acceleration.x > 1.0) {
-                self.view.backgroundColor = [UIColor greenColor];
+                [self changeImage2];
+                [self.player play];
             } else if (data.acceleration.y > 1.0) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self changeImage2];
+                [self.player play];
             } else {
-                self.view.backgroundColor = [UIColor redColor];
+                [self changeImage1];
             }
         };
         [_manager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:handler];
@@ -42,17 +59,29 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)changeImage2
+{
+    UIImageView *roboCry = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Robo02.png"]];
+    roboCry.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:roboCry];
 }
-*/
 
+- (void)changeImage1
+{
+    UIImageView *robo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Robo01.png"]];
+    robo.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:robo];
+}
+
+- (void)playFirstSound
+{
+    NSURL *soundFile = [NSURL fileURLWithPath:
+                        [[NSBundle mainBundle]pathForResource:@"mec02" ofType:@"mp3"]];
+    _firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+    _firstPlayer.delegate = self;
+    [_firstPlayer prepareToPlay];
+    [_firstPlayer play];
+}
 @end
