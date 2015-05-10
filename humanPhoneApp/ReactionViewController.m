@@ -22,23 +22,26 @@
 
 @synthesize reactionView;
 
-- (instancetype)init
+- (instancetype)initWithCount:(int)openCount
 {
     self = [super init];
     if (self) {
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         [self.view addSubview:reactionView];
         
-        NSURL *soundFile = [NSURL fileURLWithPath:
-                            [[NSBundle mainBundle]pathForResource:@"mec05" ofType:@"wav"]];
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
-        self.player.delegate = self;
-        [self.player prepareToPlay];
+        if (openCount == 0) {
+            NSURL *soundFile = [NSURL fileURLWithPath:
+                                [[NSBundle mainBundle]pathForResource:@"mec05" ofType:@"wav"]];
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+            self.player.delegate = self;
+            [self.player prepareToPlay];
+        }
     }
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self playFirstSound];
 //    [self startAccelerometer];
@@ -82,7 +85,7 @@
                 [_manager stopAccelerometerUpdates];
                 NSLog(@"error");
             }
-            if (motion.rotationRate.x > 1.5 || motion.rotationRate.x < -1.5) {
+            if (motion.rotationRate.x > 1.5) {
                 [reactionView updateImageView:YES];
                 [self.player play];
             } else if (motion.rotationRate.y > 1.5 || motion.rotationRate.y < -1.5) {
@@ -100,11 +103,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    
     [_manager stopAccelerometerUpdates];
     [_manager stopGyroUpdates];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
@@ -117,4 +123,5 @@
     [self.firstPlayer prepareToPlay];
     [self.firstPlayer play];
 }
+
 @end

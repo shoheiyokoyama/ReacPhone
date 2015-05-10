@@ -20,7 +20,7 @@
         self.backgroundColor = [UIColor whiteColor];
         _testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
         _testLabel.textAlignment = NSTextAlignmentCenter;
-        _testLabel.text = @"tap here!!";
+        _testLabel.text = @"start ReacPhone";
         _testLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *testLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLabel:)];
         [_testLabel addGestureRecognizer:testLabelTap];

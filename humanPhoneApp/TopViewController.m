@@ -12,10 +12,20 @@
 
 @interface TopViewController ()<TopViewDelegate>
 @property (nonatomic, strong) TobView *topView;
+@property (nonatomic) int openCount;
 @end
 
 @implementation TopViewController
 @synthesize topView;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.title = @"ReacPhone";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,8 +36,14 @@
 
 - (void)tappedLabel
 {
-    ReactionViewController *con = [[ReactionViewController alloc] init];
+    ReactionViewController *con = [[ReactionViewController alloc] initWithCount:_openCount];
     [self.navigationController pushViewController:con animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _openCount ++;
 }
 
 - (void)didReceiveMemoryWarning {
