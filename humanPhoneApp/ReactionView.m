@@ -9,7 +9,9 @@
 #import "ReactionView.h"
 
 @interface ReactionView()
-
+@property (nonatomic) UIImage *beforImage;
+@property (nonatomic) UIImage *reactImage;
+@property (nonatomic) UIImageView *imageView;
 @end
 
 @implementation ReactionView
@@ -17,7 +19,19 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self changeInitImage];
+        
+        NSString *bundlePath  = [[NSBundle mainBundle] bundlePath];
+        
+        NSString *beforPath   = [bundlePath stringByAppendingPathComponent:@"Robo01.png"];
+        _beforImage = [UIImage imageWithContentsOfFile:beforPath];
+        
+        NSString *afterPath = [bundlePath stringByAppendingPathComponent:@"Robo02.png"];
+        _reactImage = [UIImage imageWithContentsOfFile:afterPath];
+        
+        _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        
+        BOOL reaction = NO;
+        [self updateImageView:reaction];
     }
     return self;
 }
@@ -27,18 +41,10 @@
     [super layoutSubviews];
 }
 
-- (void)changeImage
+- (void)updateImageView:(BOOL)reaction
 {
-    UIImageView *roboCry = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Robo02.png"]];
-    roboCry.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    [self addSubview:roboCry];
-}
-
-- (void)changeInitImage
-{
-    UIImageView *robo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Robo01.png"]];
-    robo.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    [self addSubview:robo];
+    [_imageView setImage:reaction ? _reactImage : _beforImage];
+    [self addSubview:_imageView];
 }
 
 @end

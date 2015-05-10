@@ -41,34 +41,66 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self playFirstSound];
-    [self startAccelerometerHandler];
+//    [self startAccelerometer];
+    [self startGyro];
 }
 
-- (void)startAccelerometerHandler
+- (void)startAccelerometer
 {
     _manager = [[CMMotionManager alloc] init];
-    _manager.accelerometerUpdateInterval = 0.1;
-    
     if (_manager.accelerometerAvailable) {
+        _manager.accelerometerUpdateInterval = 1.0 / 10.0;
         
-        CMAccelerometerHandler handler = ^(CMAccelerometerData *data, NSError *error) {
-            if (data.acceleration.x > 1.0) {
-                [reactionView changeImage];
+        [_manager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *data, NSError *error) {
+            if (error) {
+                [_manager stopAccelerometerUpdates];
+                NSLog(@"error");
+            }
+            if (data.acceleration.x > 1.0 || data.acceleration.x < -1.0) {
+                [reactionView updateImageView:YES];
                 [self.player play];
-            } else if (data.acceleration.y > 1.0) {
-                [reactionView changeImage];
+            } else if (data.acceleration.y > 1.0 || data.acceleration.y < -1.0) {
+                [reactionView updateImageView:YES];
+                [self.player play];
+            } else if (data.acceleration.z > 1.0 || data.acceleration.z < -1.0) {
+                [reactionView updateImageView:YES];
                 [self.player play];
             } else {
-                [reactionView changeInitImage];
+                [reactionView updateImageView:NO];
             }
-        };
-        [_manager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:handler];
+        }];
     }
-    
+}
+
+- (void)startGyro
+{
+    _manager = [[CMMotionManager alloc] init];
+    if (_manager.gyroAvailable) {
+        _manager.gyroUpdateInterval = 1.0 / 10.0;
+        [_manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+            if (error) {
+                [_manager stopAccelerometerUpdates];
+                NSLog(@"error");
+            }
+            if (motion.rotationRate.x > 1.5 || motion.rotationRate.x < -1.5) {
+                [reactionView updateImageView:YES];
+                [self.player play];
+            } else if (motion.rotationRate.y > 1.5 || motion.rotationRate.y < -1.5) {
+                [reactionView updateImageView:YES];
+                [self.player play];
+            } else if (motion.rotationRate.z > 1.5 || motion.rotationRate.z < -1.5) {
+                [reactionView updateImageView:YES];
+                [self.player play];
+            } else {
+                [reactionView updateImageView:NO];
+            }
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [_manager stopAccelerometerUpdates];
     [_manager stopGyroUpdates];
 }
 
@@ -80,9 +112,9 @@
 {
     NSURL *soundFile = [NSURL fileURLWithPath:
                         [[NSBundle mainBundle]pathForResource:@"mec02" ofType:@"mp3"]];
-    _firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
-    _firstPlayer.delegate = self;
-    [_firstPlayer prepareToPlay];
-    [_firstPlayer play];
+    self.firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+    self.firstPlayer.delegate = self;
+    [self.firstPlayer prepareToPlay];
+    [self.firstPlayer play];
 }
 @end

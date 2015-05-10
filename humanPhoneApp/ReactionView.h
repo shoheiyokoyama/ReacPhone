@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ReactionView : UIView
-- (void)changeInitImage;
-- (void)changeImage;
+- (void)updateImageView:(BOOL)reaction;
 @end

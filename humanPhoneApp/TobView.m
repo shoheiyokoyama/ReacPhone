@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        _testLabel = [[UILabel alloc] init];
+        _testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
         _testLabel.textAlignment = NSTextAlignmentCenter;
         _testLabel.text = @"tap here!!";
         _testLabel.userInteractionEnabled = YES;
@@ -32,18 +32,22 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _testLabel.frame = CGRectMake((self.bounds.size.width - 100.0f) / 2, (self.bounds.size.height - 40.0f) / 2 , 100.0f, 40.0f);
+    
     [_testLabel sizeToFit];
+    CGRect labelFrame = _testLabel.frame;
+    labelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_testLabel.frame)) / 2;
+    labelFrame.origin.y = CGRectGetHeight(self.bounds) / 2;
+    _testLabel.frame = labelFrame;
 }
 
 # pragma marl - tap Action
 
 - (void)tapLabel:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"Test Labal tapped.");
+    NSLog(@"Labal tapped.");
     if ([_delegate respondsToSelector:@selector(tappedLabel)]) {
         [_delegate tappedLabel];
-    } else if (_delegate ==nil) {
+    } else if (_delegate == nil) {
     NSLog(@"delegate nil.");
     }
 }
