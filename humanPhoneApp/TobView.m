@@ -14,9 +14,10 @@
 
 @implementation TobView
 
-- (id)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         _testLabel = [[UILabel alloc] init];
         _testLabel.textAlignment = NSTextAlignmentCenter;
         _testLabel.text = @"tap here!!";

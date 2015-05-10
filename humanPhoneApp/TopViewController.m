@@ -8,33 +8,30 @@
 
 #import "TopViewController.h"
 #import "TobView.h"
-#import "HumanPhoneViewController.h"
+#import "ReactionViewController.h"
 
 @interface TopViewController ()<TopViewDelegate>
-@property (nonatomic, strong) TobView *top;
+@property (nonatomic, strong) TobView *topView;
 @end
 
 @implementation TopViewController
+@synthesize topView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _top = [[TobView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
-    _top.delegate = self;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_top];
-    
-    // Do any additional setup after loading the view, typically from a nib.
+    topView = [[TobView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    topView.delegate = self;
+    [self.view addSubview:topView];
 }
 
 - (void)tappedLabel
 {
-    HumanPhoneViewController *con = [[HumanPhoneViewController alloc]init];
+    ReactionViewController *con = [[ReactionViewController alloc] init];
     [self.navigationController pushViewController:con animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

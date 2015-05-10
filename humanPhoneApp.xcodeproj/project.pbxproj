@@ -12,6 +12,7 @@
 		6D44CC1C1AF64423004B616B /* Robo02.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1B1AF64423004B616B /* Robo02.png */; };
 		6D44CC1F1AF65099004B616B /* mec02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* mec02.mp3 */; };
 		6D44CC221AF650C6004B616B /* mec05.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC211AF650C6004B616B /* mec05.wav */; };
+		6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7FB1EF1AFF0F05007202AE /* ReactionView.m */; };
 		6DBC7C5E1AE6774400F191CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C5D1AE6774400F191CA /* main.m */; };
 		6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C601AE6774400F191CA /* AppDelegate.m */; };
 		6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */; };
@@ -21,7 +22,7 @@
 		6DBC7C6F1AE6774400F191CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */; };
 		6DBC7C7B1AE6774400F191CA /* humanPhoneAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */; };
 		6DBC7C871AE6810E00F191CA /* TobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C861AE6810E00F191CA /* TobView.m */; };
-		6DBC7C8B1AE686A500F191CA /* HumanPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */; };
+		6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		6D44CC1E1AF65099004B616B /* mec02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mec02.mp3; path = ../HackHuaApp/mec02.mp3; sourceTree = "<group>"; };
 		6D44CC211AF650C6004B616B /* mec05.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = mec05.wav; path = ../HackHuaApp/mec05.wav; sourceTree = "<group>"; };
 		6D44CC231AF6525E004B616B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
+		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
 		6DBC7C581AE6774400F191CA /* humanPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = humanPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C5C1AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C5D1AE6774400F191CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,8 +60,8 @@
 		6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = humanPhoneAppTests.m; sourceTree = "<group>"; };
 		6DBC7C851AE6810E00F191CA /* TobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TobView.h; sourceTree = "<group>"; };
 		6DBC7C861AE6810E00F191CA /* TobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TobView.m; sourceTree = "<group>"; };
-		6DBC7C891AE686A500F191CA /* HumanPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanPhoneViewController.h; sourceTree = "<group>"; };
-		6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanPhoneViewController.m; sourceTree = "<group>"; };
+		6DBC7C891AE686A500F191CA /* ReactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionViewController.h; sourceTree = "<group>"; };
+		6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +169,8 @@
 			children = (
 				6DBC7C651AE6774400F191CA /* TopViewController.h */,
 				6DBC7C661AE6774400F191CA /* TopViewController.m */,
-				6DBC7C891AE686A500F191CA /* HumanPhoneViewController.h */,
-				6DBC7C8A1AE686A500F191CA /* HumanPhoneViewController.m */,
+				6DBC7C891AE686A500F191CA /* ReactionViewController.h */,
+				6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,6 +178,8 @@
 		6DBC7C881AE6811400F191CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6D7FB1EE1AFF0F05007202AE /* ReactionView.h */,
+				6D7FB1EF1AFF0F05007202AE /* ReactionView.m */,
 				6DBC7C851AE6810E00F191CA /* TobView.h */,
 				6DBC7C861AE6810E00F191CA /* TobView.m */,
 			);
@@ -290,8 +295,9 @@
 				6DBC7C871AE6810E00F191CA /* TobView.m in Sources */,
 				6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */,
 				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
+				6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */,
 				6DBC7C5E1AE6774400F191CA /* main.m in Sources */,
-				6DBC7C8B1AE686A500F191CA /* HumanPhoneViewController.m in Sources */,
+				6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
