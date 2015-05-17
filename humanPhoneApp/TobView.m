@@ -50,7 +50,7 @@
     _startLabel.frame = labelFrame;
     
     CGRect robotLabelFrame = _startRoboLabel.frame;
-    robotLabelFrame.origin.x = CGRectGetMinX(_startLabel.frame);
+    robotLabelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startRoboLabel.frame)) / 2;
     robotLabelFrame.origin.y = CGRectGetMaxY(_startLabel.frame) + 30.0f;
     _startRoboLabel.frame = robotLabelFrame;
 }
