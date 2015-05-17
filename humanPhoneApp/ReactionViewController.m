@@ -14,9 +14,10 @@
 @interface ReactionViewController ()<AVAudioPlayerDelegate,ReactionViewDelegate>
 @property CMMotionManager *manager;
 @property (strong,nonatomic) AVAudioPlayer *firstPlayer;
-@property (strong,nonatomic) AVAudioPlayer *player;
-@property (strong,nonatomic) AVAudioPlayer *minSound;
+@property (strong,nonatomic) AVAudioPlayer *shockSound;
+@property (strong,nonatomic) AVAudioPlayer *tapSound;
 @property (nonatomic) ReactionView *reactionView;
+@property BOOL man;
 @property BOOL acting;
 @property BOOL callNoAction;
 @end
@@ -25,27 +26,28 @@
 
 @synthesize reactionView;
 
-- (instancetype)init
+- (instancetype)initWithMan:(BOOL)man
 {
     self = [super init];
     if (self) {
         _acting = NO;
         _callNoAction = NO;
-        reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _man = man;
+        reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] man:_man];
         reactionView.delegate = self;
         [self.view addSubview:reactionView];
         
-        NSURL *soundFile = [NSURL fileURLWithPath:
-                            [[NSBundle mainBundle]pathForResource:@"robo_shock" ofType:@"mp3"]];
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
-        self.player.delegate = self;
-        [self.player prepareToPlay];
+        NSURL *shockSoundFile = [NSURL fileURLWithPath:
+                                 [[NSBundle mainBundle]pathForResource:_man ? @"man_shock" : @"robo_shock" ofType:@"mp3"]];
+        self.shockSound = [[AVAudioPlayer alloc] initWithContentsOfURL:shockSoundFile error:nil];
+        self.shockSound.delegate = self;
+        [self.shockSound prepareToPlay];
         
-        NSURL *minsSound = [NSURL fileURLWithPath:
-                            [[NSBundle mainBundle]pathForResource:@"robo_min" ofType:@"wav"]];
-        self.minSound = [[AVAudioPlayer alloc] initWithContentsOfURL:minsSound error:nil];
-        self.minSound.delegate = self;
-        [self.minSound prepareToPlay];
+        NSURL *tapSoundFile = [NSURL fileURLWithPath:
+                               [[NSBundle mainBundle]pathForResource:_man ? @"man_tap" : @"robo_tap" ofType:@"wav"]];
+        self.tapSound = [[AVAudioPlayer alloc] initWithContentsOfURL:tapSoundFile error:nil];
+        self.tapSound.delegate = self;
+        [self.tapSound prepareToPlay];
     }
     return self;
 }
@@ -72,17 +74,18 @@
             if (motion.rotationRate.x > 2.5) {
                 [reactionView toggleImage:YES];
                 _acting = YES;
-                [self.player play];
+                [self.shockSound play];
             } else if (motion.rotationRate.y > 2.5) {
                 [reactionView toggleImage:YES];
                 _acting = YES;
-                [self.player play];
+                [self.shockSound play];
             } else if (motion.rotationRate.z > 2.5) {
                 [reactionView toggleImage:YES];
                 _acting = YES;
-                [self.player play];
+                [self.shockSound play];
             } else if (!_acting && _callNoAction) {
                 //noAction implementation
+                [reactionView toggleSleepImage];
                 _acting = YES;
             } else {
                 [reactionView toggleImage:NO];
@@ -110,8 +113,15 @@
 
 - (void)playFirstSound
 {
-    NSURL *soundFile = [NSURL fileURLWithPath:
+    NSURL *soundFile;
+    if (_man) {
+        soundFile = [NSURL fileURLWithPath:
+                            [[NSBundle mainBundle]pathForResource:@"man_init" ofType:@"wav"]];
+        self.firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+    } else {
+    soundFile = [NSURL fileURLWithPath:
                         [[NSBundle mainBundle]pathForResource:@"robo_init" ofType:@"mp3"]];
+    }
     self.firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
     self.firstPlayer.delegate = self;
     [self.firstPlayer prepareToPlay];
@@ -124,7 +134,7 @@
 {
     _acting = YES;
     [reactionView toggleImage:YES];
-    [self.minSound play];
+    [self.tapSound play];
 }
 
 @end

@@ -16,5 +16,7 @@
 
 @interface ReactionView : UIView
 - (void)toggleImage:(BOOL)reaction;
+- (void)toggleSleepImage;
+- (instancetype)initWithFrame:(CGRect)frame man:(BOOL)man;
 @property (nonatomic, weak) id<ReactionViewDelegate> delegate;
 @end

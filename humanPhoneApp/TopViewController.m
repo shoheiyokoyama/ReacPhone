@@ -34,9 +34,17 @@
     [self.view addSubview:topView];
 }
 
+#pragma - mark TopViewDelegate
+
 - (void)tappedLabel
 {
-    ReactionViewController *con = [[ReactionViewController alloc] init];
+    ReactionViewController *con = [[ReactionViewController alloc] initWithMan:YES];
+    [self.navigationController pushViewController:con animated:YES];
+}
+
+- (void)tappedRobotLabel
+{
+    ReactionViewController *con = [[ReactionViewController alloc] initWithMan:NO];
     [self.navigationController pushViewController:con animated:YES];
 }
 
