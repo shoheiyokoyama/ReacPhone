@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class Reaction;
+@protocol ReactionViewDelegate <NSObject>
+@optional
+- (void)tappedView;
+@end
+
 @interface ReactionView : UIView
-- (void)updateImageView:(BOOL)reaction;
+- (void)toggleImage:(BOOL)reaction;
+@property (nonatomic, weak) id<ReactionViewDelegate> delegate;
 @end

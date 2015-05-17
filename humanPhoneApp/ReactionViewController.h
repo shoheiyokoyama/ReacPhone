@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface ReactionViewController : UIViewController
-- (instancetype)initWithCount:(int)openCount;
 @end

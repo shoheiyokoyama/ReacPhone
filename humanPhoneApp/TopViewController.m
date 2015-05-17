@@ -36,14 +36,13 @@
 
 - (void)tappedLabel
 {
-    ReactionViewController *con = [[ReactionViewController alloc] initWithCount:_openCount];
+    ReactionViewController *con = [[ReactionViewController alloc] init];
     [self.navigationController pushViewController:con animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    _openCount ++;
 }
 
 - (void)didReceiveMemoryWarning {

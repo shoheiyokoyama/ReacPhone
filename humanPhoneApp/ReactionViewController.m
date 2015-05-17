@@ -11,31 +11,41 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ReactionView.h"
 
-@interface ReactionViewController ()<AVAudioPlayerDelegate>
+@interface ReactionViewController ()<AVAudioPlayerDelegate,ReactionViewDelegate>
 @property CMMotionManager *manager;
 @property (strong,nonatomic) AVAudioPlayer *firstPlayer;
 @property (strong,nonatomic) AVAudioPlayer *player;
+@property (strong,nonatomic) AVAudioPlayer *minSound;
 @property (nonatomic) ReactionView *reactionView;
+@property BOOL acting;
+@property BOOL callNoAction;
 @end
 
 @implementation ReactionViewController
 
 @synthesize reactionView;
 
-- (instancetype)initWithCount:(int)openCount
+- (instancetype)init
 {
     self = [super init];
     if (self) {
+        _acting = NO;
+        _callNoAction = NO;
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        reactionView.delegate = self;
         [self.view addSubview:reactionView];
         
-        if (openCount == 0) {
-            NSURL *soundFile = [NSURL fileURLWithPath:
-                                [[NSBundle mainBundle]pathForResource:@"mec05" ofType:@"wav"]];
-            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
-            self.player.delegate = self;
-            [self.player prepareToPlay];
-        }
+        NSURL *soundFile = [NSURL fileURLWithPath:
+                            [[NSBundle mainBundle]pathForResource:@"robo_shock" ofType:@"mp3"]];
+        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
+        self.player.delegate = self;
+        [self.player prepareToPlay];
+        
+        NSURL *minsSound = [NSURL fileURLWithPath:
+                            [[NSBundle mainBundle]pathForResource:@"robo_min" ofType:@"wav"]];
+        self.minSound = [[AVAudioPlayer alloc] initWithContentsOfURL:minsSound error:nil];
+        self.minSound.delegate = self;
+        [self.minSound prepareToPlay];
     }
     return self;
 }
@@ -44,69 +54,53 @@
 {
     [super viewDidLoad];
     [self playFirstSound];
-//    [self startAccelerometer];
-    [self startGyro];
+    [self getDiviceMotionData];
 }
 
-- (void)startAccelerometer
+- (void)getDiviceMotionData
 {
     _manager = [[CMMotionManager alloc] init];
-    if (_manager.accelerometerAvailable) {
-        _manager.accelerometerUpdateInterval = 1.0 / 10.0;
+    
+    if (_manager.deviceMotionAvailable) {
+        _manager.deviceMotionUpdateInterval = 1.0 / 10.0;
         
-        [_manager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *data, NSError *error) {
-            if (error) {
-                [_manager stopAccelerometerUpdates];
-                NSLog(@"error");
-            }
-            if (data.acceleration.x > 1.0 || data.acceleration.x < -1.0) {
-                [reactionView updateImageView:YES];
-                [self.player play];
-            } else if (data.acceleration.y > 1.0 || data.acceleration.y < -1.0) {
-                [reactionView updateImageView:YES];
-                [self.player play];
-            } else if (data.acceleration.z > 1.0 || data.acceleration.z < -1.0) {
-                [reactionView updateImageView:YES];
-                [self.player play];
-            } else {
-                [reactionView updateImageView:NO];
-            }
-        }];
-    }
-}
-
-- (void)startGyro
-{
-    _manager = [[CMMotionManager alloc] init];
-    if (_manager.gyroAvailable) {
-        _manager.gyroUpdateInterval = 1.0 / 10.0;
         [_manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
             if (error) {
-                [_manager stopAccelerometerUpdates];
+                [_manager stopDeviceMotionUpdates];
                 NSLog(@"error");
             }
-            if (motion.rotationRate.x > 1.5) {
-                [reactionView updateImageView:YES];
+            if (motion.rotationRate.x > 2.5) {
+                [reactionView toggleImage:YES];
+                _acting = YES;
                 [self.player play];
-            } else if (motion.rotationRate.y > 1.5 || motion.rotationRate.y < -1.5) {
-                [reactionView updateImageView:YES];
+            } else if (motion.rotationRate.y > 2.5) {
+                [reactionView toggleImage:YES];
+                _acting = YES;
                 [self.player play];
-            } else if (motion.rotationRate.z > 1.5 || motion.rotationRate.z < -1.5) {
-                [reactionView updateImageView:YES];
+            } else if (motion.rotationRate.z > 2.5) {
+                [reactionView toggleImage:YES];
+                _acting = YES;
                 [self.player play];
+            } else if (!_acting && _callNoAction) {
+                //noAction implementation
+                _acting = YES;
             } else {
-                [reactionView updateImageView:NO];
+                [reactionView toggleImage:NO];
+                [self performSelector:@selector(noAction) withObject:nil afterDelay:10.0];
             }
         }];
     }
 }
 
+- (void)noAction
+{
+    _acting = NO;
+    _callNoAction = YES;
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
-    [_manager stopAccelerometerUpdates];
-    [_manager stopGyroUpdates];
+    [_manager stopDeviceMotionUpdates];
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,11 +111,20 @@
 - (void)playFirstSound
 {
     NSURL *soundFile = [NSURL fileURLWithPath:
-                        [[NSBundle mainBundle]pathForResource:@"mec02" ofType:@"mp3"]];
+                        [[NSBundle mainBundle]pathForResource:@"robo_init" ofType:@"mp3"]];
     self.firstPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFile error:nil];
     self.firstPlayer.delegate = self;
     [self.firstPlayer prepareToPlay];
     [self.firstPlayer play];
+}
+
+#pragma -mark ReactionViewDelegate
+
+- (void)tappedView
+{
+    _acting = YES;
+    [reactionView toggleImage:YES];
+    [self.minSound play];
 }
 
 @end

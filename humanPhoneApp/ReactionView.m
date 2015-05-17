@@ -19,19 +19,20 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
         NSString *bundlePath  = [[NSBundle mainBundle] bundlePath];
-        
         NSString *beforPath   = [bundlePath stringByAppendingPathComponent:@"Robo01.png"];
         _beforImage = [UIImage imageWithContentsOfFile:beforPath];
-        
         NSString *afterPath = [bundlePath stringByAppendingPathComponent:@"Robo02.png"];
         _reactImage = [UIImage imageWithContentsOfFile:afterPath];
-        
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         
         BOOL reaction = NO;
-        [self updateImageView:reaction];
+        [self toggleImage:reaction];
+        
+        self.userInteractionEnabled =YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapAction:)];
+        [self addGestureRecognizer:tapGesture];
+  
     }
     return self;
 }
@@ -41,10 +42,18 @@
     [super layoutSubviews];
 }
 
-- (void)updateImageView:(BOOL)reaction
+- (void)toggleImage:(BOOL)reaction
 {
     [_imageView setImage:reaction ? _reactImage : _beforImage];
     [self addSubview:_imageView];
+}
+
+#pragma -mark TapAction
+- (void)viewTapAction:(UITapGestureRecognizer *)recognizer
+{
+    if ([_delegate respondsToSelector:@selector(tappedView)]) {
+        [_delegate tappedView];
+    }
 }
 
 @end

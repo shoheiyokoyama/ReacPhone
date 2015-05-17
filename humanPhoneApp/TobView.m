@@ -9,22 +9,23 @@
 #import "TobView.h"
 
 @interface TobView ()
-@property (nonatomic) UILabel *testLabel;
+@property (nonatomic) UILabel *startLabel;
 @end
 
 @implementation TobView
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        _testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
-        _testLabel.textAlignment = NSTextAlignmentCenter;
-        _testLabel.text = @"start ReacPhone";
-        _testLabel.userInteractionEnabled = YES;
+        _startLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
+        _startLabel.textAlignment = NSTextAlignmentCenter;
+        _startLabel.text = @"start ReacPhone";
+        _startLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *testLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLabel:)];
-        [_testLabel addGestureRecognizer:testLabelTap];
-        [self addSubview:_testLabel];
+        [_startLabel addGestureRecognizer:testLabelTap];
+        [self addSubview:_startLabel];
     }
     return self;
 }
@@ -33,11 +34,11 @@
 {
     [super layoutSubviews];
     
-    [_testLabel sizeToFit];
-    CGRect labelFrame = _testLabel.frame;
-    labelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_testLabel.frame)) / 2;
+    [_startLabel sizeToFit];
+    CGRect labelFrame = _startLabel.frame;
+    labelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startLabel.frame)) / 2;
     labelFrame.origin.y = CGRectGetHeight(self.bounds) / 2;
-    _testLabel.frame = labelFrame;
+    _startLabel.frame = labelFrame;
 }
 
 # pragma marl - tap Action
