@@ -18,7 +18,7 @@
 @property (strong,nonatomic) AVAudioPlayer *tapSound;
 @property (nonatomic) ReactionView *reactionView;
 @property BOOL man;
-@property BOOL acting;
+@property BOOL active;
 @end
 
 @implementation ReactionViewController
@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        _acting = NO;
+        _active = NO;
         _man = man;
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] man:_man];
         reactionView.delegate = self;
@@ -71,15 +71,16 @@
             }
             if (motion.rotationRate.x > 2.5) {
                 [reactionView toggleImage:YES];
-                _acting = YES;
+                [NSThread sleepForTimeInterval:0.5f];
+                _active = YES;
                 [self.shockSound play];
             } else if (motion.rotationRate.y > 2.5) {
                 [reactionView toggleImage:YES];
-                _acting = YES;
+                _active = YES;
                 [self.shockSound play];
             } else if (motion.rotationRate.z > 2.5) {
                 [reactionView toggleImage:YES];
-                _acting = YES;
+                _active = YES;
                 [self.shockSound play];
             } else {
                 [reactionView toggleImage:NO];
@@ -91,19 +92,15 @@
 
 - (void)sleepAction
 {
-    if (!_acting) {
+    if (!_active) {
         //sleep
     }
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [_manager stopDeviceMotionUpdates];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (void)playFirstSound
@@ -127,7 +124,7 @@
 
 - (void)tappedView
 {
-    _acting = YES;
+    _active = YES;
     [reactionView toggleImage:YES];
     [self.tapSound play];
 }
