@@ -40,8 +40,13 @@
         NSString *bundlePath  = [[NSBundle mainBundle] bundlePath];
         NSString *beforPath   = [bundlePath stringByAppendingPathComponent:_man ? @"man.png" : @"robot.png"];
         _beforImage = [UIImage imageWithContentsOfFile:beforPath];
+//        _beforImage = [UIImage imageNamed:_man ? @"man.png" : @"robot.png"];
+        
+        
         NSString *afterPath = [bundlePath stringByAppendingPathComponent:_man ? @"man_shock.png" : @"robot_shock.png"];
         _reactImage = [UIImage imageWithContentsOfFile:afterPath];
+//        _reactImage = [UIImage imageNamed:_man ? @"man_shock.png" : @"robot_shock.png"];
+        
 //        NSString *sleepPath = [bundlePath stringByAppendingPathComponent:_man ? @"man_shock.png" : @"robot_shock.png"];
 //        _sleepImage = [UIImage imageWithContentsOfFile:sleepPath];
         

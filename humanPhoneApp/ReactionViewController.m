@@ -19,7 +19,6 @@
 @property (nonatomic) ReactionView *reactionView;
 @property BOOL man;
 @property BOOL acting;
-@property BOOL callNoAction;
 @end
 
 @implementation ReactionViewController
@@ -31,7 +30,6 @@
     self = [super init];
     if (self) {
         _acting = NO;
-        _callNoAction = NO;
         _man = man;
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] man:_man];
         reactionView.delegate = self;
@@ -83,22 +81,19 @@
                 [reactionView toggleImage:YES];
                 _acting = YES;
                 [self.shockSound play];
-            } else if (!_acting && _callNoAction) {
-                //noAction implementation
-                [reactionView toggleSleepImage];
-                _acting = YES;
             } else {
                 [reactionView toggleImage:NO];
-                [self performSelector:@selector(noAction) withObject:nil afterDelay:10.0];
+                [self performSelector:@selector(sleepAction) withObject:nil afterDelay:10.0];
             }
         }];
     }
 }
 
-- (void)noAction
+- (void)sleepAction
 {
-    _acting = NO;
-    _callNoAction = YES;
+    if (!_acting) {
+        //sleep
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
