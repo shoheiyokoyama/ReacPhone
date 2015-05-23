@@ -34,6 +34,7 @@
         [_startButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _startButton.titleLabel.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:18.0f];
         _startButton.layer.cornerRadius = 5.0f;
+        [_startButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         _startButton.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapButton:)];
         [_startButton addGestureRecognizer:tapGesture];
@@ -46,6 +47,7 @@
         [_startRoboButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _startRoboButton.titleLabel.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:18.0f];
         _startRoboButton.layer.cornerRadius = 5.0f;
+        [_startRoboButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         _startRoboButton.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapRoboGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRoboButton:)];
         [_startRoboButton addGestureRecognizer:tapRoboGesture];
