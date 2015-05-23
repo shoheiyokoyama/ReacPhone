@@ -12,8 +12,8 @@
 
 @protocol TopViewDelegate <NSObject>
 @optional
-- (void)tappedLabel;
-- (void)tappedRobotLabel;
+- (void)tappedButton;
+- (void)tappedRobotButton;
 @end
 
 @interface TobView : UIView

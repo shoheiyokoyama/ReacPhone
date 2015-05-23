@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6DBC7C571AE6774400F191CA"
                BuildableName = "humanPhoneApp.app"
                BlueprintName = "humanPhoneApp"
-               ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+               ReferencedContainer = "container:humanPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "6DBC7C731AE6774400F191CA"
                BuildableName = "humanPhoneAppTests.xctest"
                BlueprintName = "humanPhoneAppTests"
-               ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+               ReferencedContainer = "container:humanPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "6DBC7C731AE6774400F191CA"
                BuildableName = "humanPhoneAppTests.xctest"
                BlueprintName = "humanPhoneAppTests"
-               ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+               ReferencedContainer = "container:humanPhone.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "6DBC7C571AE6774400F191CA"
             BuildableName = "humanPhoneApp.app"
             BlueprintName = "humanPhoneApp"
-            ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+            ReferencedContainer = "container:humanPhone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "6DBC7C571AE6774400F191CA"
             BuildableName = "humanPhoneApp.app"
             BlueprintName = "humanPhoneApp"
-            ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+            ReferencedContainer = "container:humanPhone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,7 +98,7 @@
             BlueprintIdentifier = "6DBC7C571AE6774400F191CA"
             BuildableName = "humanPhoneApp.app"
             BlueprintName = "humanPhoneApp"
-            ReferencedContainer = "container:humanPhoneApp.xcodeproj">
+            ReferencedContainer = "container:humanPhone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

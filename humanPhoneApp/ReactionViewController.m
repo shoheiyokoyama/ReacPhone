@@ -17,8 +17,10 @@
 @property (strong,nonatomic) AVAudioPlayer *shockSound;
 @property (strong,nonatomic) AVAudioPlayer *tapSound;
 @property (nonatomic) ReactionView *reactionView;
-@property BOOL man;
-@property BOOL active;
+@property (nonatomic) BOOL man;
+@property (nonatomic) BOOL active;
+@property (nonatomic) BOOL idling;
+@property (nonatomic) BOOL callSleepAction;
 @end
 
 @implementation ReactionViewController
@@ -30,7 +32,10 @@
     self = [super init];
     if (self) {
         _active = NO;
+        _idling = NO;
+        _callSleepAction = NO;
         _man = man;
+        
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] man:_man];
         reactionView.delegate = self;
         [self.view addSubview:reactionView];
@@ -40,9 +45,8 @@
         self.shockSound = [[AVAudioPlayer alloc] initWithContentsOfURL:shockSoundFile error:nil];
         self.shockSound.delegate = self;
         [self.shockSound prepareToPlay];
-        
         NSURL *tapSoundFile = [NSURL fileURLWithPath:
-                               [[NSBundle mainBundle]pathForResource:_man ? @"man_tap" : @"robo_tap" ofType:@"wav"]];
+                               [[NSBundle mainBundle]pathForResource:_man ? @"tap" : @"robo_tap" ofType:@"wav"]];
         self.tapSound = [[AVAudioPlayer alloc] initWithContentsOfURL:tapSoundFile error:nil];
         self.tapSound.delegate = self;
         [self.tapSound prepareToPlay];
@@ -53,8 +57,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self playFirstSound];
+    [reactionView toggleImage:NO];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(closeView)];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [reactionView toggleHelloImage];
+    [self playHelloSound];
     [self getDiviceMotionData];
+}
+
+- (void)closeView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)getDiviceMotionData
@@ -62,29 +82,37 @@
     _manager = [[CMMotionManager alloc] init];
     
     if (_manager.deviceMotionAvailable) {
-        _manager.deviceMotionUpdateInterval = 1.0 / 10.0;
+        _manager.deviceMotionUpdateInterval = (1.0 / 10.0f) * 2;
         
         [_manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
             if (error) {
                 [_manager stopDeviceMotionUpdates];
                 NSLog(@"error");
             }
-            if (motion.rotationRate.x > 2.5) {
+            if (motion.rotationRate.x > 2.0 || motion.rotationRate.x < -2.0) {
                 [reactionView toggleImage:YES];
-                [NSThread sleepForTimeInterval:0.5f];
                 _active = YES;
+                _idling = NO;
                 [self.shockSound play];
-            } else if (motion.rotationRate.y > 2.5) {
+            } else if (motion.rotationRate.y > 2.0 || motion.rotationRate.y < -2.0) {
                 [reactionView toggleImage:YES];
                 _active = YES;
+                _idling = NO;
                 [self.shockSound play];
-            } else if (motion.rotationRate.z > 2.5) {
+            } else if (motion.rotationRate.z > 2.0 || motion.rotationRate.z < -2.0) {
                 [reactionView toggleImage:YES];
                 _active = YES;
+                _idling = NO;
                 [self.shockSound play];
             } else {
-                [reactionView toggleImage:NO];
-                [self performSelector:@selector(sleepAction) withObject:nil afterDelay:10.0];
+                if (!_idling) {
+                    [reactionView toggleImage:NO];
+                }
+                if (!_callSleepAction) {
+                    [self performSelector:@selector(sleepAction) withObject:nil afterDelay:7.0];
+                    _callSleepAction = YES;
+                    _active = NO;
+                }
             }
         }];
     }
@@ -93,8 +121,10 @@
 - (void)sleepAction
 {
     if (!_active) {
-        //sleep
+        [reactionView toggleSleepImage];
+        _idling = YES;
     }
+    _callSleepAction = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -103,7 +133,7 @@
     [_manager stopDeviceMotionUpdates];
 }
 
-- (void)playFirstSound
+- (void)playHelloSound
 {
     NSURL *soundFile;
     if (_man) {
@@ -125,7 +155,8 @@
 - (void)tappedView
 {
     _active = YES;
-    [reactionView toggleImage:YES];
+    _idling = NO;
+    [reactionView toggleTapImage];
     [self.tapSound play];
 }
 

@@ -9,8 +9,10 @@
 #import "TobView.h"
 
 @interface TobView ()
-@property (nonatomic) UILabel *startLabel;
-@property (nonatomic) UILabel *startRoboLabel;
+@property (nonatomic) UIImageView *logoImageView;
+@property (nonatomic) UIButton *startButton;
+@property (nonatomic) UIButton *startRoboButton;
+
 @end
 
 @implementation TobView
@@ -19,22 +21,35 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        _startLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
-        _startLabel.textAlignment = NSTextAlignmentCenter;
-        _startLabel.text = @"start";
-        _startLabel.userInteractionEnabled = YES;
-        UITapGestureRecognizer *testLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLabel:)];
-        [_startLabel addGestureRecognizer:testLabelTap];
-        [self addSubview:_startLabel];
-        
-        _startRoboLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
-        _startRoboLabel.textAlignment = NSTextAlignmentCenter;
-        _startRoboLabel.text = @"start robot Version";
-        _startRoboLabel.userInteractionEnabled = YES;
-        UITapGestureRecognizer *testRobotLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRobotLabel:)];
-        [_startRoboLabel addGestureRecognizer:testRobotLabelTap];
-        [self addSubview:_startRoboLabel];
+        self.backgroundColor = [UIColor colorWithRed:255/255.0 green:240/255.0 blue:70/255.0 alpha:1.0];
+ 
+        _logoImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 70.0f)];
+        _logoImageView.image = [UIImage imageNamed:@"logo"];
+        [self addSubview:_logoImageView];
+      
+        _startButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+        [_startButton setTitle:@"start" forState:UIControlStateNormal];
+        _startButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
+        _startButton.backgroundColor = [UIColor yellowColor];
+        [_startButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _startButton.titleLabel.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:18.0f];
+        _startButton.layer.cornerRadius = 5.0f;
+        _startButton.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapButton:)];
+        [_startButton addGestureRecognizer:tapGesture];
+        [self addSubview:_startButton];
+    
+        _startRoboButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+        [_startRoboButton setTitle:@"start robot Version" forState:UIControlStateNormal];
+        _startRoboButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
+        _startRoboButton.backgroundColor = [UIColor yellowColor];
+        [_startRoboButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _startRoboButton.titleLabel.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:18.0f];
+        _startRoboButton.layer.cornerRadius = 5.0f;
+        _startRoboButton.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapRoboGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRoboButton:)];
+        [_startRoboButton addGestureRecognizer:tapRoboGesture];
+        [self addSubview:_startRoboButton];
     }
     return self;
 }
@@ -43,35 +58,39 @@
 {
     [super layoutSubviews];
     
-    [_startLabel sizeToFit];
-    CGRect labelFrame = _startLabel.frame;
-    labelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startLabel.frame)) / 2;
-    labelFrame.origin.y = CGRectGetHeight(self.bounds) / 2;
-    _startLabel.frame = labelFrame;
+    CGRect logoFrame = _logoImageView.frame;
+    logoFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_logoImageView.frame)) / 2;
+    logoFrame.origin.y = (CGRectGetHeight(self.bounds) / 2) - 170.0f;
+    _logoImageView.frame = logoFrame;
     
-    CGRect robotLabelFrame = _startRoboLabel.frame;
-    robotLabelFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startRoboLabel.frame)) / 2;
-    robotLabelFrame.origin.y = CGRectGetMaxY(_startLabel.frame) + 30.0f;
-    _startRoboLabel.frame = robotLabelFrame;
+    CGRect Frame = _startButton.frame;
+    Frame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startButton.frame)) / 2;
+    Frame.origin.y = (CGRectGetHeight(self.bounds)) - 190.0f;
+    _startButton.frame = Frame;
+    
+    CGRect robotFrame = _startRoboButton.frame;
+    robotFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startRoboButton.frame)) / 2;
+    robotFrame.origin.y = (CGRectGetHeight(self.bounds)) - 120.0f;
+    _startRoboButton.frame = robotFrame;
 }
 
 # pragma marl - tap Action
 
-- (void)tapLabel:(UITapGestureRecognizer *)sender
+- (void)tapButton:(UITapGestureRecognizer *)sender
 {
     NSLog(@"Labal tapped.");
-    if ([_delegate respondsToSelector:@selector(tappedLabel)]) {
-        [_delegate tappedLabel];
+    if ([_delegate respondsToSelector:@selector(tappedButton)]) {
+        [_delegate tappedButton];
     } else if (_delegate == nil) {
     NSLog(@"delegate nil.");
     }
 }
 
-- (void)tapRobotLabel:(UITapGestureRecognizer *)sender
+- (void)tapRoboButton:(UITapGestureRecognizer *)sender
 {
     NSLog(@"Labal tapped.");
-    if ([_delegate respondsToSelector:@selector(tappedRobotLabel)]) {
-        [_delegate tappedRobotLabel];
+    if ([_delegate respondsToSelector:@selector(tappedRobotButton)]) {
+        [_delegate tappedRobotButton];
     } else if (_delegate == nil) {
         NSLog(@"delegate nil.");
     }

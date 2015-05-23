@@ -36,16 +36,23 @@
 
 #pragma - mark TopViewDelegate
 
-- (void)tappedLabel
+- (void)tappedButton
 {
     ReactionViewController *con = [[ReactionViewController alloc] initWithMan:YES];
-    [self.navigationController pushViewController:con animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:con];
+    navi.navigationBar.backgroundColor = [UIColor yellowColor];
+    navi.navigationBar.tintColor = [UIColor grayColor];
+    [self presentViewController:navi animated:YES completion:nil];
+    
 }
 
-- (void)tappedRobotLabel
+- (void)tappedRobotButton
 {
     ReactionViewController *con = [[ReactionViewController alloc] initWithMan:NO];
-    [self.navigationController pushViewController:con animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:con];
+    navi.navigationBar.backgroundColor = [UIColor yellowColor];
+    navi.navigationBar.tintColor = [UIColor grayColor];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

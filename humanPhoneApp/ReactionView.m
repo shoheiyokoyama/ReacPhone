@@ -12,6 +12,8 @@
 @property (nonatomic) UIImage *beforImage;
 @property (nonatomic) UIImage *reactImage;
 @property (nonatomic) UIImage *sleepImage;
+@property (nonatomic) UIImage *tapImage;
+@property (nonatomic) UIImage *helloImage;
 @property (nonatomic) UIImageView *imageView;
 @property BOOL man;
 @end
@@ -37,21 +39,11 @@
     self = [self initWithFrame:frame];
     if (self) {
         _man = man;
-        NSString *bundlePath  = [[NSBundle mainBundle] bundlePath];
-        NSString *beforPath   = [bundlePath stringByAppendingPathComponent:_man ? @"man.png" : @"robot.png"];
-        _beforImage = [UIImage imageWithContentsOfFile:beforPath];
-//        _beforImage = [UIImage imageNamed:_man ? @"man.png" : @"robot.png"];
-        
-        
-        NSString *afterPath = [bundlePath stringByAppendingPathComponent:_man ? @"man_shock.png" : @"robot_shock.png"];
-        _reactImage = [UIImage imageWithContentsOfFile:afterPath];
-//        _reactImage = [UIImage imageNamed:_man ? @"man_shock.png" : @"robot_shock.png"];
-        
-//        NSString *sleepPath = [bundlePath stringByAppendingPathComponent:_man ? @"man_shock.png" : @"robot_shock.png"];
-//        _sleepImage = [UIImage imageWithContentsOfFile:sleepPath];
-        
-        BOOL reaction = NO;
-        [self toggleImage:reaction];
+        _beforImage = [UIImage imageNamed:_man ? @"nomal" : @"robo_nomal"];
+        _reactImage = [UIImage imageNamed:_man ? @"shock" : @"robo_shock"];
+        _sleepImage = [UIImage imageNamed:_man ? @"sleep" : @"robo_sleep"];
+        _helloImage = [UIImage imageNamed:_man ? @"hello" : @"robo_hello"];
+        _tapImage = [UIImage imageNamed:_man ? @"tap" : @"robo_hello"];
     }
     return self;
 }
@@ -67,9 +59,21 @@
     [self addSubview:_imageView];
 }
 
+- (void)toggleHelloImage
+{
+    [_imageView setImage:_helloImage];
+    [self addSubview:_imageView];
+}
+
 - (void)toggleSleepImage
 {
     [_imageView setImage:_sleepImage];
+    [self addSubview:_imageView];
+}
+
+- (void)toggleTapImage
+{
+    [_imageView setImage:_tapImage];
     [self addSubview:_imageView];
 }
 
