@@ -107,7 +107,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "ReacPhone"
+      customArchiveName = "humanPhoneApp"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
