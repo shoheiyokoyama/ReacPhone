@@ -80,21 +80,17 @@
 
 - (void)tapButton:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"Labal tapped.");
-    if ([_delegate respondsToSelector:@selector(tappedButton)]) {
-        [_delegate tappedButton];
-    } else if (_delegate == nil) {
-    NSLog(@"delegate nil.");
+    NSLog(@"Button tapped.");
+    if(self.tappedButton){
+        self.tappedButton();
     }
 }
 
 - (void)tapRoboButton:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"Labal tapped.");
-    if ([_delegate respondsToSelector:@selector(tappedRobotButton)]) {
-        [_delegate tappedRobotButton];
-    } else if (_delegate == nil) {
-        NSLog(@"delegate nil.");
+    NSLog(@"Robot Button tapped.");
+    if(self.tappedRobotButton){
+        self.tappedRobotButton();
     }
 }
 

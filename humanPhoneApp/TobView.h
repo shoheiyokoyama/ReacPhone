@@ -8,14 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class Top;
-
-@protocol TopViewDelegate <NSObject>
-@optional
-- (void)tappedButton;
-- (void)tappedRobotButton;
-@end
-
 @interface TobView : UIView
-@property (nonatomic, weak) id<TopViewDelegate> delegate;
+@property (copy) void (^tappedButton)();
+@property (copy) void (^tappedRobotButton)();
 @end

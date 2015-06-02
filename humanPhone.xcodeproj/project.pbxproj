@@ -447,7 +447,7 @@
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
-				PROVISIONING_PROFILE = "eb90e735-fa19-4ddf-86ea-a796264ea91b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
