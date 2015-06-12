@@ -28,7 +28,7 @@
         [self addSubview:_logoImageView];
       
         _startButton = [[RTButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
-        [_startButton setTitle:@"start" forState:UIControlStateNormal];
+        [_startButton setTitle:@"START" forState:UIControlStateNormal];
         _startButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
         _startButton.backgroundColor = [UIColor yellowColor];
         [_startButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -41,7 +41,7 @@
         [self addSubview:_startButton];
     
         _startRoboButton = [[RTButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
-        [_startRoboButton setTitle:@"start robot Version" forState:UIControlStateNormal];
+        [_startRoboButton setTitle:@"START ROBOT" forState:UIControlStateNormal];
         _startRoboButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
         _startRoboButton.backgroundColor = [UIColor yellowColor];
         [_startRoboButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
