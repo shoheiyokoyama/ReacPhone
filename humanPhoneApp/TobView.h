@@ -12,3 +12,6 @@
 @property (copy) void (^tappedButton)();
 @property (copy) void (^tappedRobotButton)();
 @end
+
+@interface RTButton : UIButton
+@end

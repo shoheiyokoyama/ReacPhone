@@ -10,8 +10,8 @@
 
 @interface TobView ()
 @property (nonatomic) UIImageView *logoImageView;
-@property (nonatomic) UIButton *startButton;
-@property (nonatomic) UIButton *startRoboButton;
+@property (nonatomic) RTButton *startButton;
+@property (nonatomic) RTButton *startRoboButton;
 
 @end
 
@@ -27,7 +27,7 @@
         _logoImageView.image = [UIImage imageNamed:@"logo"];
         [self addSubview:_logoImageView];
       
-        _startButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+        _startButton = [[RTButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
         [_startButton setTitle:@"start" forState:UIControlStateNormal];
         _startButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
         _startButton.backgroundColor = [UIColor yellowColor];
@@ -40,7 +40,7 @@
         [_startButton addGestureRecognizer:tapGesture];
         [self addSubview:_startButton];
     
-        _startRoboButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
+        _startRoboButton = [[RTButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 40.0f)];
         [_startRoboButton setTitle:@"start robot Version" forState:UIControlStateNormal];
         _startRoboButton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
         _startRoboButton.backgroundColor = [UIColor yellowColor];
@@ -92,6 +92,54 @@
     if(self.tappedRobotButton){
         self.tappedRobotButton();
     }
+}
+
+@end
+
+@interface RTButton()
+@end
+
+@implementation RTButton
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    if (highlighted) {
+        self.backgroundColor = [self colorWithHsvRatio:[UIColor yellowColor] hueRatio:1.0 saturationRatio:0.6 brightnessRatio:1.4];
+        static CGFloat highlightedScale = 0.9f;
+        self.transform = CGAffineTransformMakeScale(highlightedScale, highlightedScale);
+    } else {
+        self.backgroundColor = [UIColor yellowColor];
+        self.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+    }
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    if (selected) {
+        self.backgroundColor =[self colorWithHsvRatio:[UIColor yellowColor] hueRatio:1.0 saturationRatio:0.6 brightnessRatio:1.4];
+        static CGFloat selectedScale = 0.9f;
+        self.transform = CGAffineTransformMakeScale(selectedScale, selectedScale);
+    } else {
+        self.backgroundColor = [UIColor yellowColor];
+        self.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+    }
+}
+
+- (UIColor *)colorWithHsvRatio:(UIColor *)baseColor hueRatio:(CGFloat)hueRatio saturationRatio:(CGFloat)saturationRatio brightnessRatio:(CGFloat)brightnessRatio
+{
+    CGFloat hue = 0;
+    CGFloat saturation = 0;
+    CGFloat brightness = 0;
+    CGFloat alpha = 0;
+    
+    BOOL converted = [baseColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
+    if (converted) {
+        return [UIColor colorWithHue:(hue * hueRatio) saturation:(saturation * saturationRatio) brightness:(brightness * brightnessRatio) alpha:alpha];
+    }
+    
+    return nil;
 }
 
 @end

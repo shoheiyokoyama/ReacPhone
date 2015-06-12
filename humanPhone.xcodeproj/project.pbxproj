@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6D44CC1F1AF65099004B616B /* robo_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* robo_shock.mp3 */; };
-		6D4D922D1B0897CD00CBB617 /* robo_init.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D4D922C1B0897CD00CBB617 /* robo_init.mp3 */; };
-		6D4D92381B08B8C400CBB617 /* man_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D4D92371B08B8C400CBB617 /* man_shock.mp3 */; };
-		6D4D923A1B08B8FF00CBB617 /* man_init.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6D4D92391B08B8FF00CBB617 /* man_init.wav */; };
 		6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7FB1EF1AFF0F05007202AE /* ReactionView.m */; };
-		6DA6F2C61B107CF7000C551F /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DA6F2C51B107CF7000C551F /* tap.wav */; };
-		6DA6F2C81B107D98000C551F /* robo_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DA6F2C71B107D98000C551F /* robo_tap.wav */; };
+		6DB837781B29BE9A000AB9AC /* man_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DB837771B29BE9A000AB9AC /* man_shock.mp3 */; };
+		6DB8377A1B29BEB3000AB9AC /* robo_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB837791B29BEB3000AB9AC /* robo_tap.wav */; };
+		6DB8377C1B29BF25000AB9AC /* man_init.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377B1B29BF25000AB9AC /* man_init.wav */; };
+		6DB8377E1B29BF44000AB9AC /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377D1B29BF44000AB9AC /* tap.wav */; };
+		6DB837801B29BF68000AB9AC /* robo_init.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */; };
+		6DB837821B29C5A6000AB9AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB837811B29C5A6000AB9AC /* AVFoundation.framework */; };
+		6DB8378D1B29CC04000AB9AC /* Framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB837891B29CAC1000AB9AC /* Framework */; };
+		6DB8378F1B2A73A5000AB9AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */; };
 		6DBC7C5E1AE6774400F191CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C5D1AE6774400F191CA /* main.m */; };
 		6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C601AE6774400F191CA /* AppDelegate.m */; };
 		6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */; };
@@ -38,14 +41,16 @@
 
 /* Begin PBXFileReference section */
 		6D44CC1E1AF65099004B616B /* robo_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_shock.mp3; path = ../HackHuaApp/robo_shock.mp3; sourceTree = "<group>"; };
-		6D44CC231AF6525E004B616B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		6D4D922C1B0897CD00CBB617 /* robo_init.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_init.mp3; path = "../../../Desktop/sound/open hack/robo_init.mp3"; sourceTree = "<group>"; };
-		6D4D92371B08B8C400CBB617 /* man_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = man_shock.mp3; path = "../../../Desktop/sound/open hack/man_shock.mp3"; sourceTree = "<group>"; };
-		6D4D92391B08B8FF00CBB617 /* man_init.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = man_init.wav; path = ../../../Desktop/sound/man_init.wav; sourceTree = "<group>"; };
 		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
 		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
-		6DA6F2C51B107CF7000C551F /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap.wav; path = "../../../Desktop/sound/魔物や生き物の音/tap.wav"; sourceTree = "<group>"; };
-		6DA6F2C71B107D98000C551F /* robo_tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = robo_tap.wav; path = "../../../Desktop/sound/open hack/robo_tap.wav"; sourceTree = "<group>"; };
+		6DB837771B29BE9A000AB9AC /* man_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = man_shock.mp3; path = "../../../../Desktop/sound/open hack/man_shock.mp3"; sourceTree = "<group>"; };
+		6DB837791B29BEB3000AB9AC /* robo_tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = robo_tap.wav; path = "../../../../Desktop/sound/open hack/robo_tap.wav"; sourceTree = "<group>"; };
+		6DB8377B1B29BF25000AB9AC /* man_init.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = man_init.wav; path = ../../../../Desktop/sound/man_init.wav; sourceTree = "<group>"; };
+		6DB8377D1B29BF44000AB9AC /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap.wav; path = "../../../../Desktop/sound/魔物や生き物の音/tap.wav"; sourceTree = "<group>"; };
+		6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_init.mp3; path = "../../../../Desktop/sound/open hack/robo_init.mp3"; sourceTree = "<group>"; };
+		6DB837811B29C5A6000AB9AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6DB837891B29CAC1000AB9AC /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Framework; path = humanPhoneApp/Framework; sourceTree = "<group>"; };
+		6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6DBC7C581AE6774400F191CA /* humanPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = humanPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C5C1AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C5D1AE6774400F191CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DB8378F1B2A73A5000AB9AC /* AudioToolbox.framework in Frameworks */,
+				6DB8378D1B29CC04000AB9AC /* Framework in Frameworks */,
+				6DB837821B29C5A6000AB9AC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,9 +95,9 @@
 		6D44CC201AF650AF004B616B /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				6D4D92371B08B8C400CBB617 /* man_shock.mp3 */,
-				6D4D92391B08B8FF00CBB617 /* man_init.wav */,
-				6DA6F2C51B107CF7000C551F /* tap.wav */,
+				6DB837771B29BE9A000AB9AC /* man_shock.mp3 */,
+				6DB8377B1B29BF25000AB9AC /* man_init.wav */,
+				6DB8377D1B29BF44000AB9AC /* tap.wav */,
 				6D4D92301B08B22000CBB617 /* Robot */,
 			);
 			name = sound;
@@ -98,9 +106,9 @@
 		6D4D92301B08B22000CBB617 /* Robot */ = {
 			isa = PBXGroup;
 			children = (
-				6DA6F2C71B107D98000C551F /* robo_tap.wav */,
+				6DB837791B29BEB3000AB9AC /* robo_tap.wav */,
+				6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */,
 				6D44CC1E1AF65099004B616B /* robo_shock.mp3 */,
-				6D4D922C1B0897CD00CBB617 /* robo_init.mp3 */,
 			);
 			name = Robot;
 			sourceTree = "<group>";
@@ -108,7 +116,9 @@
 		6DBC7C4F1AE6774400F191CA = {
 			isa = PBXGroup;
 			children = (
-				6D44CC231AF6525E004B616B /* AudioToolbox.framework */,
+				6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */,
+				6DB837891B29CAC1000AB9AC /* Framework */,
+				6DB837811B29C5A6000AB9AC /* AVFoundation.framework */,
 				6DBC7C5A1AE6774400F191CA /* humanPhoneApp */,
 				6DBC7C771AE6774400F191CA /* humanPhoneAppTests */,
 				6DBC7C591AE6774400F191CA /* Products */,
@@ -272,13 +282,13 @@
 			files = (
 				6D44CC1F1AF65099004B616B /* robo_shock.mp3 in Resources */,
 				6DBC7C6A1AE6774400F191CA /* Main.storyboard in Resources */,
-				6D4D922D1B0897CD00CBB617 /* robo_init.mp3 in Resources */,
+				6DB837781B29BE9A000AB9AC /* man_shock.mp3 in Resources */,
+				6DB8377E1B29BF44000AB9AC /* tap.wav in Resources */,
+				6DB837801B29BF68000AB9AC /* robo_init.mp3 in Resources */,
+				6DB8377A1B29BEB3000AB9AC /* robo_tap.wav in Resources */,
+				6DB8377C1B29BF25000AB9AC /* man_init.wav in Resources */,
 				6DBC7C6F1AE6774400F191CA /* LaunchScreen.xib in Resources */,
-				6DA6F2C81B107D98000C551F /* robo_tap.wav in Resources */,
-				6DA6F2C61B107CF7000C551F /* tap.wav in Resources */,
 				6DBC7C6C1AE6774400F191CA /* Images.xcassets in Resources */,
-				6D4D923A1B08B8FF00CBB617 /* man_init.wav in Resources */,
-				6D4D92381B08B8C400CBB617 /* man_shock.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +439,7 @@
 		6DBC7C7F1AE6774400F191CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -442,6 +453,7 @@
 		6DBC7C801AE6774400F191CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;

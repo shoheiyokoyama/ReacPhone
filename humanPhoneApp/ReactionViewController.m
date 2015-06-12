@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ReactionView.h"
+#import <Slt/Slt.h>
+#import <OpenEars/FliteController.h>
 
 @interface ReactionViewController ()<AVAudioPlayerDelegate,ReactionViewDelegate>
 @property CMMotionManager *manager;
