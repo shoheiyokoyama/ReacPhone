@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ReactionView.h"
 #import <Slt/Slt.h>
-#import <OpenEars/FliteController.h>
+#import <OpenEars/OEFliteController.h>
 
 @interface ReactionViewController ()<AVAudioPlayerDelegate,ReactionViewDelegate>
 @property CMMotionManager *manager;
@@ -23,6 +23,8 @@
 @property (nonatomic) BOOL active;
 @property (nonatomic) BOOL idling;
 @property (nonatomic) BOOL callSleepAction;
+@property (strong, nonatomic) OEFliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
 @end
 
 @implementation ReactionViewController
@@ -43,12 +45,12 @@
         [self.view addSubview:reactionView];
         
         NSURL *shockSoundFile = [NSURL fileURLWithPath:
-                                 [[NSBundle mainBundle]pathForResource:_man ? @"man_shock" : @"robo_shock" ofType:@"mp3"]];
+                                 [[NSBundle mainBundle]pathForResource:@"robo_shock" ofType:@"mp3"]];
         self.shockSound = [[AVAudioPlayer alloc] initWithContentsOfURL:shockSoundFile error:nil];
         self.shockSound.delegate = self;
         [self.shockSound prepareToPlay];
         NSURL *tapSoundFile = [NSURL fileURLWithPath:
-                               [[NSBundle mainBundle]pathForResource:_man ? @"tap" : @"robo_tap" ofType:@"wav"]];
+                               [[NSBundle mainBundle]pathForResource:@"robo_tap" ofType:@"wav"]];
         self.tapSound = [[AVAudioPlayer alloc] initWithContentsOfURL:tapSoundFile error:nil];
         self.tapSound.delegate = self;
         [self.tapSound prepareToPlay];
@@ -64,13 +66,15 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(closeView)];
+    _fliteController = [[OEFliteController alloc] init];
+    _slt = [[Slt alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [reactionView toggleHelloImage];
-    [self playHelloSound];
+    _man ? [_fliteController say:@"Hello" withVoice:_slt] : [self playHelloSound];
     [self getDiviceMotionData];
 }
 
@@ -95,17 +99,17 @@
                 [reactionView toggleImage:YES];
                 _active = YES;
                 _idling = NO;
-                [self.shockSound play];
+                _man ? [_fliteController say:@"ouch" withVoice:_slt] : [self.shockSound play];//ouch あいた！　痛い！
             } else if (motion.rotationRate.y > 2.0 || motion.rotationRate.y < -2.0) {
                 [reactionView toggleImage:YES];
                 _active = YES;
                 _idling = NO;
-                [self.shockSound play];
+                _man ? [_fliteController say:@"Wow" withVoice:_slt] : [self.shockSound play];
             } else if (motion.rotationRate.z > 2.0 || motion.rotationRate.z < -2.0) {
                 [reactionView toggleImage:YES];
                 _active = YES;
                 _idling = NO;
-                [self.shockSound play];
+                _man ? [_fliteController say:@"aargh" withVoice:_slt] : [self.shockSound play];//aargh ウワー
             } else {
                 if (!_idling) {
                     [reactionView toggleImage:NO];
@@ -159,7 +163,7 @@
     _active = YES;
     _idling = NO;
     [reactionView toggleTapImage];
-    [self.tapSound play];
+    _man ? [_fliteController say:@"Hi" withVoice:_slt] : [self.tapSound play];//Hi やあ
 }
 
 @end

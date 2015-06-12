@@ -15,8 +15,10 @@
 		6DB8377E1B29BF44000AB9AC /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377D1B29BF44000AB9AC /* tap.wav */; };
 		6DB837801B29BF68000AB9AC /* robo_init.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */; };
 		6DB837821B29C5A6000AB9AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB837811B29C5A6000AB9AC /* AVFoundation.framework */; };
-		6DB8378D1B29CC04000AB9AC /* Framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB837891B29CAC1000AB9AC /* Framework */; };
 		6DB8378F1B2A73A5000AB9AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */; };
+		6DB8379B1B2A79B0000AB9AC /* Framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB8379A1B2A79B0000AB9AC /* Framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		6DB8379D1B2A7DB9000AB9AC /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB8379C1B2A7DB9000AB9AC /* Slt.framework */; };
+		6DB8379F1B2A7DBF000AB9AC /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB8379E1B2A7DBF000AB9AC /* OpenEars.framework */; };
 		6DBC7C5E1AE6774400F191CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C5D1AE6774400F191CA /* main.m */; };
 		6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C601AE6774400F191CA /* AppDelegate.m */; };
 		6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */; };
@@ -49,8 +51,10 @@
 		6DB8377D1B29BF44000AB9AC /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap.wav; path = "../../../../Desktop/sound/魔物や生き物の音/tap.wav"; sourceTree = "<group>"; };
 		6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_init.mp3; path = "../../../../Desktop/sound/open hack/robo_init.mp3"; sourceTree = "<group>"; };
 		6DB837811B29C5A6000AB9AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		6DB837891B29CAC1000AB9AC /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Framework; path = humanPhoneApp/Framework; sourceTree = "<group>"; };
 		6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6DB8379A1B2A79B0000AB9AC /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Framework; path = OpenEarsDistribution/Framework; sourceTree = "<group>"; };
+		6DB8379C1B2A7DB9000AB9AC /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Slt.framework; path = ../OpenEarsDistribution/Framework/Slt.framework; sourceTree = "<group>"; };
+		6DB8379E1B2A7DBF000AB9AC /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenEars.framework; path = ../OpenEarsDistribution/Framework/OpenEars.framework; sourceTree = "<group>"; };
 		6DBC7C581AE6774400F191CA /* humanPhoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = humanPhoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C5C1AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C5D1AE6774400F191CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,8 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DB8379D1B2A7DB9000AB9AC /* Slt.framework in Frameworks */,
+				6DB8379B1B2A79B0000AB9AC /* Framework in Frameworks */,
+				6DB8379F1B2A7DBF000AB9AC /* OpenEars.framework in Frameworks */,
 				6DB8378F1B2A73A5000AB9AC /* AudioToolbox.framework in Frameworks */,
-				6DB8378D1B29CC04000AB9AC /* Framework in Frameworks */,
 				6DB837821B29C5A6000AB9AC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,9 +122,9 @@
 		6DBC7C4F1AE6774400F191CA = {
 			isa = PBXGroup;
 			children = (
-				6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */,
-				6DB837891B29CAC1000AB9AC /* Framework */,
+				6DB8379A1B2A79B0000AB9AC /* Framework */,
 				6DB837811B29C5A6000AB9AC /* AVFoundation.framework */,
+				6DB8378E1B2A73A5000AB9AC /* AudioToolbox.framework */,
 				6DBC7C5A1AE6774400F191CA /* humanPhoneApp */,
 				6DBC7C771AE6774400F191CA /* humanPhoneAppTests */,
 				6DBC7C591AE6774400F191CA /* Products */,
@@ -138,6 +144,8 @@
 		6DBC7C5A1AE6774400F191CA /* humanPhoneApp */ = {
 			isa = PBXGroup;
 			children = (
+				6DB8379E1B2A7DBF000AB9AC /* OpenEars.framework */,
+				6DB8379C1B2A7DB9000AB9AC /* Slt.framework */,
 				6DBC7C881AE6811400F191CA /* View */,
 				6DBC7C841AE6807300F191CA /* Controller */,
 				6DBC7C5F1AE6774400F191CA /* AppDelegate.h */,
@@ -388,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[arch=*]" = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -426,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[arch=*]" = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "eb90e735-fa19-4ddf-86ea-a796264ea91b";
@@ -443,6 +451,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OpenEarsDistribution/Framework",
+				);
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
@@ -456,6 +469,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OpenEarsDistribution/Framework",
+				);
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
