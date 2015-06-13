@@ -36,6 +36,8 @@
         
         reactionView = [[ReactionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] man:_man];
         reactionView.delegate = self;
+        reactionView.bannerView.rootViewController = self;
+        [reactionView.bannerView loadRequest:[GADRequest request]];
         [self.view addSubview:reactionView];
     }
     return self;
@@ -124,6 +126,7 @@
 {
     [super viewWillDisappear:animated];
     [_manager stopDeviceMotionUpdates];
+    _active = YES;
 }
 
 #pragma -mark ReactionViewDelegate
