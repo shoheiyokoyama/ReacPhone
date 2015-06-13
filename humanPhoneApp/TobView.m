@@ -52,6 +52,10 @@
         UITapGestureRecognizer *tapRoboGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRoboButton:)];
         [_startRoboButton addGestureRecognizer:tapRoboGesture];
         [self addSubview:_startRoboButton];
+        
+        _bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeSmartBannerPortrait];
+        _bannerView.adUnitID = @"ca-app-pub-9398695746908582/1848241756";
+        [self addSubview:_bannerView];
     }
     return self;
 }
@@ -72,8 +76,12 @@
     
     CGRect robotFrame = _startRoboButton.frame;
     robotFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startRoboButton.frame)) / 2;
-    robotFrame.origin.y = (CGRectGetHeight(self.bounds)) - 120.0f;
+    robotFrame.origin.y = CGRectGetHeight(self.bounds) - 120.0f;
     _startRoboButton.frame = robotFrame;
+    
+    CGRect bannerFrame = _bannerView.frame;
+    bannerFrame.origin.y = CGRectGetHeight(self.bounds) - _bannerView.frame.size.height;
+    _bannerView.frame = bannerFrame;
 }
 
 # pragma marl - tap Action

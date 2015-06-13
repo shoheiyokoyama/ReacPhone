@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GADBannerView.h>
 
 @interface TobView : UIView
 @property (copy) void (^tappedButton)();
 @property (copy) void (^tappedRobotButton)();
+@property (nonatomic) GADBannerView *bannerView;
 @end
 
 @interface RTButton : UIButton

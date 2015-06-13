@@ -26,6 +26,7 @@
 		6DBC7C7B1AE6774400F191CA /* humanPhoneAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */; };
 		6DBC7C871AE6810E00F191CA /* TobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C861AE6810E00F191CA /* TobView.m */; };
 		6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */; };
+		B5025B17E7A6A09929A3E72B /* libPods-humanPhoneApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-humanPhoneApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CB9D45FD93F015480A7E48 /* Pods-humanPhoneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-humanPhoneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6D44CC1E1AF65099004B616B /* robo_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_shock.mp3; path = ../HackHuaApp/robo_shock.mp3; sourceTree = "<group>"; };
 		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
 		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		6DBC7C861AE6810E00F191CA /* TobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TobView.m; sourceTree = "<group>"; };
 		6DBC7C891AE686A500F191CA /* ReactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionViewController.h; sourceTree = "<group>"; };
 		6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionViewController.m; sourceTree = "<group>"; };
+		7CD7DD05D933BC5042E3322F /* Pods-humanPhoneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-humanPhoneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				6DB8379F1B2A7DBF000AB9AC /* OpenEars.framework in Frameworks */,
 				6DB8378F1B2A73A5000AB9AC /* AudioToolbox.framework in Frameworks */,
 				6DB837821B29C5A6000AB9AC /* AVFoundation.framework in Frameworks */,
+				B5025B17E7A6A09929A3E72B /* libPods-humanPhoneApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29301630F547345DB76B284C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D44CC201AF650AF004B616B /* sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,8 @@
 				6DBC7C591AE6774400F191CA /* Products */,
 				6DB837A31B2B293C000AB9AC /* Framework */,
 				6D44CC201AF650AF004B616B /* sound */,
+				EC098C1F38CCB16CCA4737A3 /* Pods */,
+				29301630F547345DB76B284C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,12 +151,12 @@
 		6DBC7C5A1AE6774400F191CA /* humanPhoneApp */ = {
 			isa = PBXGroup;
 			children = (
-				6DB837A01B2B0E33000AB9AC /* AudioTool.h */,
-				6DB837A11B2B0E33000AB9AC /* AudioTool.m */,
 				6DBC7C881AE6811400F191CA /* View */,
 				6DBC7C841AE6807300F191CA /* Controller */,
 				6DBC7C5F1AE6774400F191CA /* AppDelegate.h */,
 				6DBC7C601AE6774400F191CA /* AppDelegate.m */,
+				6DB837A01B2B0E33000AB9AC /* AudioTool.h */,
+				6DB837A11B2B0E33000AB9AC /* AudioTool.m */,
 				6DBC7C681AE6774400F191CA /* Main.storyboard */,
 				6DBC7C6B1AE6774400F191CA /* Images.xcassets */,
 				6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */,
@@ -199,6 +214,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		EC098C1F38CCB16CCA4737A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				54CB9D45FD93F015480A7E48 /* Pods-humanPhoneApp.debug.xcconfig */,
+				7CD7DD05D933BC5042E3322F /* Pods-humanPhoneApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DBC7C7E1AE6774400F191CA /* Build configuration list for PBXNativeTarget "humanPhoneApp" */;
 			buildPhases = (
+				57597FE48E750D6FF96423B4 /* Check Pods Manifest.lock */,
 				6DBC7C541AE6774400F191CA /* Sources */,
 				6DBC7C561AE6774400F191CA /* Resources */,
 				6D44CC251AF652A5004B616B /* Frameworks */,
+				0E9CA2FC9FCF627BD3227C45 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +323,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E9CA2FC9FCF627BD3227C45 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57597FE48E750D6FF96423B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6DBC7C541AE6774400F191CA /* Sources */ = {
@@ -436,16 +495,13 @@
 		};
 		6DBC7C7F1AE6774400F191CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54CB9D45FD93F015480A7E48 /* Pods-humanPhoneApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/OpenEarsDistribution/Framework",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
@@ -455,6 +511,7 @@
 		};
 		6DBC7C801AE6774400F191CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CD7DD05D933BC5042E3322F /* Pods-humanPhoneApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

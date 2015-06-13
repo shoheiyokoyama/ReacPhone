@@ -44,6 +44,11 @@
         _sleepImage = [UIImage imageNamed:_man ? @"sleep" : @"robo_sleep"];
         _helloImage = [UIImage imageNamed:_man ? @"hello" : @"robo_hello"];
         _tapImage = [UIImage imageNamed:_man ? @"tap" : @"robo_hello"];
+        
+        _bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeSmartBannerPortrait];
+        _bannerView.adUnitID = @"ca-app-pub-9398695746908582/3185374153";
+        [self addSubview:_bannerView];
+        [self bringSubviewToFront:_bannerView];
     }
     return self;
 }
@@ -51,6 +56,10 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    CGRect bannerFrame = _bannerView.frame;
+    bannerFrame.origin.y = CGRectGetHeight(self.bounds) - _bannerView.frame.size.height;
+    _bannerView.frame = bannerFrame;
 }
 
 - (void)toggleImage:(BOOL)reaction

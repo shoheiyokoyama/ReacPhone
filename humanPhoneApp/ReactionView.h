@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GADBannerView.h>
 
 @class Reaction;
 @protocol ReactionViewDelegate <NSObject>
@@ -21,4 +22,5 @@
 - (void)toggleHelloImage;
 - (instancetype)initWithFrame:(CGRect)frame man:(BOOL)man;
 @property (nonatomic, weak) id<ReactionViewDelegate> delegate;
+@property (nonatomic) GADBannerView *bannerView;
 @end

@@ -9,9 +9,11 @@
 #import "TopViewController.h"
 #import "TobView.h"
 #import "ReactionViewController.h"
+#import <GoogleMobileAds/GADBannerView.h>
 
 @interface TopViewController ()
 @property (nonatomic, strong) TobView *topView;
+@property (nonatomic) GADBannerView *bannerView;
 @end
 
 @implementation TopViewController
@@ -22,6 +24,8 @@
     self = [super init];
     if (self) {
         topView = [[TobView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        topView.bannerView.rootViewController = self;
+        [topView.bannerView loadRequest:[GADRequest request]];
         [self.view addSubview:topView];
     }
     return self;
