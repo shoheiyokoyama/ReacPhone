@@ -12,7 +12,6 @@
 @property (nonatomic) UIImageView *logoImageView;
 @property (nonatomic) RTButton *startButton;
 @property (nonatomic) RTButton *startRoboButton;
-
 @end
 
 @implementation TobView

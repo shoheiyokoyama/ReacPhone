@@ -88,7 +88,7 @@
                 [_manager stopDeviceMotionUpdates];
                 NSLog(@"error");
             }
-            if ((motion.rotationRate.x > 2.0 || motion.rotationRate.x < -2.0) && !_animation) {
+            if ((motion.rotationRate.x > 2.5 || motion.rotationRate.x < -2.5) && !_animation) {
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
@@ -96,7 +96,7 @@
                 _active = YES;
                 _idling = NO;
                 _man ? [self.instance playNameSound:@"ouch"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//ouch あいた！　痛い！
-            } else if ((motion.rotationRate.y > 2.0 || motion.rotationRate.y < -2.0) && !_animation) {
+            } else if ((motion.rotationRate.y > 2.5 || motion.rotationRate.y < -2.5) && !_animation) {
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
@@ -104,7 +104,7 @@
                 _active = YES;
                 _idling = NO;
                 _man ? [self.instance playNameSound:@"Wow"] : [self.instance playPathNameSound:@"robo_shock.mp3"];
-            } else if ((motion.rotationRate.z > 2.0 || motion.rotationRate.z < -2.0) && !_animation) {
+            } else if ((motion.rotationRate.z > 2.5 || motion.rotationRate.z < -2.5) && !_animation) {
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
