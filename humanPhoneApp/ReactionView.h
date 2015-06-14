@@ -16,11 +16,15 @@
 @end
 
 @interface ReactionView : UIView
-- (void)toggleImage:(BOOL)reaction;
+typedef void (^AnimationCompletionHandler)(BOOL animation);
+
+- (void)toggleTapImage:(AnimationCompletionHandler)completionHandler;
+- (void)toggleHelloImage:(AnimationCompletionHandler)completionHandler;
+- (void)toggleImage:(AnimationCompletionHandler)completionHandler;
 - (void)toggleSleepImage;
-- (void)toggleTapImage;
-- (void)toggleHelloImage;
 - (instancetype)initWithFrame:(CGRect)frame man:(BOOL)man;
 @property (nonatomic, weak) id<ReactionViewDelegate> delegate;
 @property (nonatomic) GADBannerView *bannerView;
+@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIImage *beforImage;
 @end

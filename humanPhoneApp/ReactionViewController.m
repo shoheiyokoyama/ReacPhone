@@ -16,6 +16,7 @@
 @property (nonatomic) ReactionView *reactionView;
 @property (nonatomic) BOOL man;
 @property (nonatomic) BOOL active;
+@property (nonatomic) BOOL animation;
 @property (nonatomic) BOOL idling;
 @property (nonatomic) BOOL callSleepAction;
 @property (nonatomic, weak, readonly) AudioTool *instance;
@@ -31,6 +32,7 @@
     if (self) {
         _active = NO;
         _idling = NO;
+        _animation = NO;
         _callSleepAction = NO;
         _man = man;
         
@@ -51,7 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [reactionView toggleImage:NO];
+    [reactionView.imageView setImage:reactionView.beforImage];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる"
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
@@ -61,7 +63,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [reactionView toggleHelloImage];
+    _animation = YES;
+    [reactionView toggleHelloImage:^(BOOL animation) {
+        _animation = animation;
+    }];
     _man ? [self.instance playNameSound:@"Hello"] : [self.instance playPathNameSound:@"robo_init.mp3"];
     [self getDiviceMotionData];
 }
@@ -76,31 +81,40 @@
     _manager = [[CMMotionManager alloc] init];
     
     if (_manager.deviceMotionAvailable) {
-        _manager.deviceMotionUpdateInterval = (1.0 / 10.0f) * 2;
+        _manager.deviceMotionUpdateInterval = 1.0 / 10.0f;
         
         [_manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
             if (error) {
                 [_manager stopDeviceMotionUpdates];
                 NSLog(@"error");
             }
-            if (motion.rotationRate.x > 2.0 || motion.rotationRate.x < -2.0) {
-                [reactionView toggleImage:YES];
+            if ((motion.rotationRate.x > 2.0 || motion.rotationRate.x < -2.0) && !_animation) {
+                [reactionView toggleImage:^(BOOL animation) {
+                    _animation = animation;
+                }];
+                _animation = YES;
                 _active = YES;
                 _idling = NO;
                 _man ? [self.instance playNameSound:@"ouch"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//ouch あいた！　痛い！
-            } else if (motion.rotationRate.y > 2.0 || motion.rotationRate.y < -2.0) {
-                [reactionView toggleImage:YES];
+            } else if ((motion.rotationRate.y > 2.0 || motion.rotationRate.y < -2.0) && !_animation) {
+                [reactionView toggleImage:^(BOOL animation) {
+                    _animation = animation;
+                }];
+                _animation = YES;
                 _active = YES;
                 _idling = NO;
                 _man ? [self.instance playNameSound:@"Wow"] : [self.instance playPathNameSound:@"robo_shock.mp3"];
-            } else if (motion.rotationRate.z > 2.0 || motion.rotationRate.z < -2.0) {
-                [reactionView toggleImage:YES];
+            } else if ((motion.rotationRate.z > 2.0 || motion.rotationRate.z < -2.0) && !_animation) {
+                [reactionView toggleImage:^(BOOL animation) {
+                    _animation = animation;
+                }];
+                _animation = YES;
                 _active = YES;
                 _idling = NO;
-                _man ? [self.instance playNameSound:@"aargh"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//aargh ウワー
+                _man ? [self.instance playNameSound:@"ouch"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//aargh ウワー
             } else {
-                if (!_idling) {
-                    [reactionView toggleImage:NO];
+                if (!_idling && !_animation) {
+                    [reactionView.imageView setImage:reactionView.beforImage];
                 }
                 if (!_callSleepAction) {
                     [self performSelector:@selector(sleepAction) withObject:nil afterDelay:7.0];
@@ -133,10 +147,17 @@
 
 - (void)tappedView
 {
-    _active = YES;
     _idling = NO;
-    [reactionView toggleTapImage];
-    _man ? [self.instance playNameSound:@"Hi"] : [self.instance playPathNameSound:@"robo_tap.wav"];
+    _active = YES;
+    if (!_animation) {
+        _animation = YES;
+        _man ? [self.instance playNameSound:@"Hi"] : [self.instance playPathNameSound:@"robo_tap.wav"];
+        [reactionView toggleTapImage:^(BOOL animation) {
+            _animation = animation;
+        }];
+    } else {
+        return;
+    }
 }
 
 @end

@@ -505,7 +505,7 @@
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";
 			};
 			name = Debug;
 		};
@@ -515,7 +515,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shohei Yokoyama (3KU3GWQLG8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -524,7 +524,7 @@
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";
 			};
 			name = Release;
 		};

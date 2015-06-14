@@ -9,12 +9,10 @@
 #import "ReactionView.h"
 
 @interface ReactionView()
-@property (nonatomic) UIImage *beforImage;
 @property (nonatomic) UIImage *reactImage;
 @property (nonatomic) UIImage *sleepImage;
 @property (nonatomic) UIImage *tapImage;
 @property (nonatomic) UIImage *helloImage;
-@property (nonatomic) UIImageView *imageView;
 @property BOOL man;
 @end
 
@@ -25,6 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview:_imageView];
 
         self.userInteractionEnabled =YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapAction:)];
@@ -62,28 +61,42 @@
     _bannerView.frame = bannerFrame;
 }
 
-- (void)toggleImage:(BOOL)reaction
+- (void)toggleImage:(AnimationCompletionHandler)completionHandler
 {
-    [_imageView setImage:reaction ? _reactImage : _beforImage];
-    [self addSubview:_imageView];
+    [self imageAnimation:_reactImage animateScale:1.3f completionHandler:completionHandler];
 }
 
-- (void)toggleHelloImage
+- (void)toggleHelloImage:(AnimationCompletionHandler)completionHandler
 {
-    [_imageView setImage:_helloImage];
-    [self addSubview:_imageView];
+    [self imageAnimation:_helloImage animateScale:1.2f completionHandler:completionHandler];
 }
+
 
 - (void)toggleSleepImage
 {
     [_imageView setImage:_sleepImage];
-    [self addSubview:_imageView];
 }
 
-- (void)toggleTapImage
+- (void)toggleTapImage:(AnimationCompletionHandler)completionHandler
 {
-    [_imageView setImage:_tapImage];
-    [self addSubview:_imageView];
+    [self imageAnimation:_tapImage animateScale:1.3f completionHandler:completionHandler];
+}
+
+- (void)imageAnimation:(UIImage *)image animateScale:(CGFloat)animateScale completionHandler:(AnimationCompletionHandler)completionHandler
+{
+    [_imageView setImage:image];
+    [UIView animateWithDuration:0.5f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^ {
+                         _imageView.transform = CGAffineTransformMakeScale(animateScale, animateScale);
+                         _imageView.transform = CGAffineTransformIdentity;
+                     } completion:^(BOOL finished){
+                         if (completionHandler) {
+                             completionHandler(NO);
+                         }
+                     }];
+
 }
 
 #pragma -mark TapAction
