@@ -22,11 +22,10 @@
 static AudioTool *instance = nil;
 + (AudioTool *)sharedInstance
 {
-    @synchronized(self) {
-        if (!instance) {
-            instance = [[AudioTool alloc] init];
-        }
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[AudioTool alloc]init];
+    });
     return instance;
 }
 
