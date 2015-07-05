@@ -27,4 +27,6 @@ typedef void (^AnimationCompletionHandler)(BOOL animation);
 @property (nonatomic) GADBannerView *bannerView;
 @property (nonatomic) UIImageView *imageView;
 @property (nonatomic) UIImage *beforImage;
+@property (nonatomic) UIImage *reactImage;
+@property (nonatomic) UIProgressView *statusView;
 @end

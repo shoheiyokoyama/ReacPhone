@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A76A01B48E257004AA3DA /* OverScreenView.m */; };
 		6D44CC1F1AF65099004B616B /* robo_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* robo_shock.mp3 */; };
 		6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7FB1EF1AFF0F05007202AE /* ReactionView.m */; };
 		6DB8377A1B29BEB3000AB9AC /* robo_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB837791B29BEB3000AB9AC /* robo_tap.wav */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-humanPhoneApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CB9D45FD93F015480A7E48 /* Pods-humanPhoneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-humanPhoneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6D3A769F1B48E257004AA3DA /* OverScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverScreenView.h; sourceTree = "<group>"; };
+		6D3A76A01B48E257004AA3DA /* OverScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverScreenView.m; sourceTree = "<group>"; };
 		6D44CC1E1AF65099004B616B /* robo_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_shock.mp3; path = ../HackHuaApp/robo_shock.mp3; sourceTree = "<group>"; };
 		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
 		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 		6DBC7C881AE6811400F191CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6D3A769F1B48E257004AA3DA /* OverScreenView.h */,
+				6D3A76A01B48E257004AA3DA /* OverScreenView.m */,
 				6D7FB1EE1AFF0F05007202AE /* ReactionView.h */,
 				6D7FB1EF1AFF0F05007202AE /* ReactionView.m */,
 				6DBC7C851AE6810E00F191CA /* TobView.h */,
@@ -367,6 +372,7 @@
 				6DBC7C611AE6774400F191CA /* AppDelegate.m in Sources */,
 				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
 				6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */,
+				6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */,
 				6DBC7C5E1AE6774400F191CA /* main.m in Sources */,
 				6DB837A21B2B0E33000AB9AC /* AudioTool.m in Sources */,
 				6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */,

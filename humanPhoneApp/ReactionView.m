@@ -9,7 +9,6 @@
 #import "ReactionView.h"
 
 @interface ReactionView()
-@property (nonatomic) UIImage *reactImage;
 @property (nonatomic) UIImage *sleepImage;
 @property (nonatomic) UIImage *tapImage;
 @property (nonatomic) UIImage *helloImage;
@@ -28,6 +27,9 @@
         self.userInteractionEnabled =YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapAction:)];
         [self addGestureRecognizer:tapGesture];
+        
+        _statusView = [[UIProgressView alloc]initWithFrame:CGRectZero];
+        [self addSubview:_statusView];
   
     }
     return self;
@@ -44,10 +46,10 @@
         _helloImage = [UIImage imageNamed:_man ? @"hello" : @"robo_hello"];
         _tapImage = [UIImage imageNamed:_man ? @"tap" : @"robo_hello"];
         
-        _bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeSmartBannerPortrait];
-        _bannerView.adUnitID = @"ca-app-pub-9398695746908582/3185374153";
-        [self addSubview:_bannerView];
-        [self bringSubviewToFront:_bannerView];
+//        _bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeSmartBannerPortrait];
+//        _bannerView.adUnitID = @"ca-app-pub-9398695746908582/3185374153";
+//        [self addSubview:_bannerView];
+//        [self bringSubviewToFront:_bannerView];
     }
     return self;
 }
@@ -59,6 +61,12 @@
     CGRect bannerFrame = _bannerView.frame;
     bannerFrame.origin.y = CGRectGetHeight(self.bounds) - _bannerView.frame.size.height;
     _bannerView.frame = bannerFrame;
+    
+    CGRect statusFrame = _statusView.frame;
+    statusFrame.size.width = CGRectGetWidth(self.bounds) - 100.0f;
+    statusFrame.origin.y = CGRectGetHeight(self.bounds) - 30.0f;
+    statusFrame.origin.x = (CGRectGetWidth(self.bounds) - _statusView.frame.size.width) / 2;
+    _statusView.frame = statusFrame;
 }
 
 - (void)toggleImage:(AnimationCompletionHandler)completionHandler
