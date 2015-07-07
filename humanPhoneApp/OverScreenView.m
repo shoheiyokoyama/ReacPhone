@@ -31,11 +31,11 @@
         retrybutton = [[UIButton alloc] initWithFrame:CGRectZero];
         [retrybutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         retrybutton.titleLabel.font = [UIFont boldSystemFontOfSize: 15.0f];
-        [retrybutton setTitle:@"わかりました" forState:UIControlStateNormal];
+        [retrybutton setTitle:@"OK" forState:UIControlStateNormal];
         retrybutton.backgroundColor = [UIColor clearColor];
         retrybutton.contentEdgeInsets = UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f);
         retrybutton.layer.cornerRadius = 5.0f;
-        retrybutton.layer.borderColor = [UIColor colorWithRed:0.18f green:0.67f blue:0.84f alpha:1.0f].CGColor;
+        retrybutton.layer.borderColor = [UIColor whiteColor].CGColor;
         retrybutton.layer.borderWidth = 2.0f;
         [retrybutton setTitleColor:[UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f] forState:UIControlStateHighlighted];
         

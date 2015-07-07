@@ -21,6 +21,10 @@
 @property (nonatomic) BOOL idling;
 @property (nonatomic) BOOL callSleepAction;
 @property (nonatomic, weak, readonly) AudioTool *instance;
+@property (nonatomic) NSDate *nowDate;
+@property (nonatomic) NSDate *morningDate;
+@property (nonatomic) NSDate *afternoonDate;
+@property (nonatomic) NSDate *nightDate;
 @end
 
 @implementation ReactionViewController
@@ -45,6 +49,20 @@
         reactionView.statusView.progress = 1.0f;
         reactionView.statusView.tintColor = [UIColor colorWithRed:0.27f green:0.85f blue:0.46f alpha:1.0f];
         
+        _nowDate = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY/MM/dd"];
+        NSString* dateStr = [formatter stringFromDate:_nowDate];
+        NSString *morning = [NSString stringWithFormat:@"%@ %@",dateStr, @"05:00:00"];
+        NSString *afternoon = [NSString stringWithFormat:@"%@ %@",dateStr, @"12:00:00"];
+        NSString *night = [NSString stringWithFormat:@"%@ %@",dateStr, @"17:00:00"];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        _morningDate = [dateFormatter dateFromString:morning];
+        _afternoonDate = [dateFormatter dateFromString:afternoon];
+        _nightDate = [dateFormatter dateFromString:night];
+        
+        NSLog(@"now %@",[dateFormatter stringFromDate:_nowDate]);
     }
     return self;
 }
@@ -63,6 +81,8 @@
                                                                             target:self
                                                                             action:@selector(closeView)];
     
+    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
+    [notification addObserver:self selector:@selector(didEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -87,9 +107,22 @@
         [reactionView toggleHelloImage:^(BOOL animation) {
             _animation = animation;
         }];
-        _man ? [self.instance playNameSound:@"Hello"] : [self.instance playPathNameSound:@"robo_init.mp3"];
+        _man ? [self sayGreeting] : [self.instance playPathNameSound:@"robo_init.mp3"];
         [self getDiviceMotionData];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_manager stopDeviceMotionUpdates];
+    _active = YES;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    _man ? [userDefaults setFloat:reactionView.statusView.progress forKey:@"manStatus"] : [userDefaults setFloat:reactionView.statusView.progress forKey:@"roboStatus"];
+    [userDefaults synchronize];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)closeView
@@ -161,10 +194,11 @@
         [_manager stopDeviceMotionUpdates];
         
         overScreen.retry=^(){
-            reactionView.statusView.progress = 1.0f;
+            [reactionView.statusView setProgress:0.4f animated:YES];
             [self getDiviceMotionData];
             reactionView.statusView.tintColor = [UIColor colorWithRed:0.27f green:0.85f blue:0.46f alpha:1.0f];
         };
+        
     } else if (reactionView.statusView.progress < 0.2f) {
         reactionView.statusView.tintColor = [UIColor redColor];
     } else if (reactionView.statusView.progress < 0.4f) {
@@ -185,15 +219,20 @@
     _callSleepAction = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)sayGreeting
 {
-    [super viewWillDisappear:animated];
-    [_manager stopDeviceMotionUpdates];
-    _active = YES;
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    _man ? [userDefaults setFloat:reactionView.statusView.progress forKey:@"manStatus"] : [userDefaults setFloat:reactionView.statusView.progress forKey:@"roboStatus"];
-    [userDefaults synchronize];
+    if([_nowDate compare:_morningDate] == NSOrderedDescending && [_nowDate compare:_afternoonDate] == NSOrderedAscending){
+        [self.instance playNameSound:@"Good morning"];
+    } else if ([_nowDate compare:_afternoonDate] == NSOrderedDescending && [_nowDate compare:_nightDate] == NSOrderedAscending){
+        [self.instance playNameSound:@"Hello"];
+    } else {
+        [self.instance playNameSound:@"Good evening"];
+    }
+}
+
+- (void)didEnterBackground:(NSNotification *)notification
+{
+    [reactionView toggleSleepImage];
 }
 
 #pragma -mark ReactionViewDelegate
@@ -202,14 +241,13 @@
 {
     _idling = NO;
     _active = YES;
+    
     if (!_animation) {
         _animation = YES;
         _man ? [self.instance playNameSound:@"Hi"] : [self.instance playPathNameSound:@"robo_tap.wav"];
         [reactionView toggleTapImage:^(BOOL animation) {
             _animation = animation;
         }];
-    } else {
-        return;
     }
 }
 
