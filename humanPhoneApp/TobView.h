@@ -10,7 +10,7 @@
 #import <GoogleMobileAds/GADBannerView.h>
 
 @interface TobView : UIView
-@property (copy) void (^tappedButton)();
+@property (copy) void (^tappedButton)(NSString *name);
 @property (copy) void (^tappedRobotButton)();
 @property (nonatomic) GADBannerView *bannerView;
 @end

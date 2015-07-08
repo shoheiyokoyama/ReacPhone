@@ -37,12 +37,18 @@
     
     __weak typeof(self) weakSelf = self;
     
-    topView.tappedButton=^(){
-        ReactionViewController *con = [[ReactionViewController alloc] initWithMan:YES];
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:con];
-        navi.navigationBar.backgroundColor = [UIColor yellowColor];
-        navi.navigationBar.tintColor = [UIColor grayColor];
-        [weakSelf presentViewController:navi animated:YES completion:nil];
+    topView.tappedButton=^(NSString *text){
+        
+        if (![[text stringByTrimmingCharactersInSet:
+               [NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+            ReactionViewController *con = [[ReactionViewController alloc] initWithMan:YES name:text];
+            UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:con];
+            navi.navigationBar.backgroundColor = [UIColor yellowColor];
+            navi.navigationBar.tintColor = [UIColor grayColor];
+            [weakSelf presentViewController:navi animated:YES completion:nil];
+        } else {
+            [weakSelf showAlert:@"名前を入力してください"];
+        }
     };
     
     topView.tappedRobotButton=^(){
@@ -52,6 +58,16 @@
         navi.navigationBar.tintColor = [UIColor grayColor];
         [weakSelf presentViewController:navi animated:YES completion:nil];
     };
+}
+
+- (void)showAlert:(NSString *)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 @end

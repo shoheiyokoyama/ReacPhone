@@ -8,10 +8,11 @@
 
 #import "TobView.h"
 
-@interface TobView ()
+@interface TobView ()<UITextFieldDelegate>
 @property (nonatomic) UIImageView *logoImageView;
 @property (nonatomic) RTButton *startButton;
 @property (nonatomic) RTButton *startRoboButton;
+@property (nonatomic) UITextField *textField;
 @end
 
 @implementation TobView
@@ -55,6 +56,16 @@
         _bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeSmartBannerPortrait];
         _bannerView.adUnitID = @"ca-app-pub-9398695746908582/1848241756";
         [self addSubview:_bannerView];
+        
+        _textField = [[UITextField alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 30)];
+        _textField.placeholder = @"What's your name";
+        _textField.textAlignment = NSTextAlignmentLeft;
+        _textField.borderStyle = UITextBorderStyleRoundedRect;
+        _textField.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:14];
+        _textField.keyboardType = UIKeyboardAppearanceDefault;
+        _textField.clearButtonMode = UITextFieldViewModeNever;
+        _textField.delegate = self;
+        [self addSubview:_textField];
     }
     return self;
 }
@@ -81,6 +92,17 @@
     CGRect bannerFrame = _bannerView.frame;
     bannerFrame.origin.y = CGRectGetHeight(self.bounds) - _bannerView.frame.size.height;
     _bannerView.frame = bannerFrame;
+    
+    CGRect textFrame = _textField.frame;
+    textFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_textField.frame)) / 2;
+    textFrame.origin.y = CGRectGetMaxY(_logoImageView.frame) + 50.0f;
+    _textField.frame = textFrame;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    [_textField resignFirstResponder];
+    return YES;
 }
 
 # pragma marl - tap Action
@@ -89,7 +111,7 @@
 {
     NSLog(@"Button tapped.");
     if(self.tappedButton){
-        self.tappedButton();
+        self.tappedButton(_textField.text);
     }
 }
 

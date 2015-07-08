@@ -509,6 +509,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
 				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";
@@ -528,6 +529,7 @@
 					"$(PROJECT_DIR)/OpenEarsDistribution/Framework",
 				);
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
 				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";

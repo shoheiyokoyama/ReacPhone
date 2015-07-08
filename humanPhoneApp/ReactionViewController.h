@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ReactionViewController : UIViewController
+- (instancetype)initWithMan:(BOOL)man name:(NSString *)name;
 - (instancetype)initWithMan:(BOOL)man;
 @end

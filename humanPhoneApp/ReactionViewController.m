@@ -25,6 +25,7 @@
 @property (nonatomic) NSDate *morningDate;
 @property (nonatomic) NSDate *afternoonDate;
 @property (nonatomic) NSDate *nightDate;
+@property (nonatomic) NSString *name;
 @end
 
 @implementation ReactionViewController
@@ -63,6 +64,15 @@
         _nightDate = [dateFormatter dateFromString:night];
         
         NSLog(@"now %@",[dateFormatter stringFromDate:_nowDate]);
+    }
+    return self;
+}
+
+- (instancetype)initWithMan:(BOOL)man name:(NSString *)name
+{
+    self = [self initWithMan:man];
+    if (self) {
+        _name = name;
     }
     return self;
 }
@@ -189,7 +199,7 @@
     reactionView.statusView.progress += value;
     
     if (reactionView.statusView.progress == 0.0f) {
-        [self.instance speak:@"もっと大切に扱って下さい" rate:0.2 pitchMultiplier:0.5];
+        _man ? [self.instance speak:@"もっと大切に扱って下さい" rate:0.2 pitchMultiplier:0.5] : [self.instance playSoundFile:@"robo_init.mp3"];
         OverScreenView *overScreen = [[OverScreenView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
         [self.view addSubview:overScreen ];
         [_manager stopDeviceMotionUpdates];
@@ -223,11 +233,14 @@
 - (void)sayGreeting
 {
     if([_nowDate compare:_morningDate] == NSOrderedDescending && [_nowDate compare:_afternoonDate] == NSOrderedAscending){
-        [self.instance speak:@"おはよう" rate:0.1 pitchMultiplier:0.5];
+        NSString *greet = [_name stringByAppendingString:@"さん おはよう"];
+        [self.instance speak:greet rate:0.1 pitchMultiplier:0.5];
     } else if ([_nowDate compare:_afternoonDate] == NSOrderedDescending && [_nowDate compare:_nightDate] == NSOrderedAscending){
-        [self.instance speak:@"こんにちは" rate:0.1 pitchMultiplier:0.5];
+        NSString *greet = [_name stringByAppendingString:@"さん こんにちは"];
+        [self.instance speak:greet rate:0.1 pitchMultiplier:0.5];
     } else {
-        [self.instance speak:@"こんばんわ" rate:0.1 pitchMultiplier:0.5];
+        NSString *greet = [_name stringByAppendingString:@"さん こんばんわ"];
+        [self.instance speak:greet rate:0.1 pitchMultiplier:0.5];
     }
 }
 
