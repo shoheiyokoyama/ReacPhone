@@ -28,7 +28,7 @@
         warningLabel.text = @"もっと大切に扱って!";
         [self addSubview:warningLabel];
         
-        retrybutton = [[UIButton alloc] initWithFrame:CGRectZero];
+        retrybutton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 40.0f)];
         [retrybutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         retrybutton.titleLabel.font = [UIFont boldSystemFontOfSize: 15.0f];
         [retrybutton setTitle:@"OK" forState:UIControlStateNormal];
@@ -57,12 +57,10 @@
     warningFrame.origin.y = (CGRectGetHeight(self.bounds) - warningLabel.frame.size.height) / 2;
     warningLabel.frame = warningFrame;
     
-    [retrybutton sizeToFit];
     CGRect retryFrame = retrybutton.frame;
     retryFrame.origin.x = (CGRectGetWidth(self.bounds) - retrybutton.frame.size.width) / 2;
     retryFrame.origin.y = CGRectGetMaxY(warningLabel.frame) + 30.0f;
     retrybutton.frame = retryFrame;
-    
     
 }
 

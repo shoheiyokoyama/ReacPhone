@@ -107,7 +107,7 @@
         [reactionView toggleHelloImage:^(BOOL animation) {
             _animation = animation;
         }];
-        _man ? [self sayGreeting] : [self.instance playPathNameSound:@"robo_init.mp3"];
+        _man ? [self sayGreeting] : [self.instance playSoundFile:@"robo_init.mp3"];
         [self getDiviceMotionData];
     }
 }
@@ -142,7 +142,7 @@
                 [_manager stopDeviceMotionUpdates];
                 NSLog(@"error");
             }
-            if ((motion.rotationRate.x > 2.5 || motion.rotationRate.x < -2.5) && !_animation) {
+            if ((motion.rotationRate.x > 3.5 || motion.rotationRate.x < -3.5) && !_animation) {
                 [self progressChangeValue:-0.1];
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
@@ -150,8 +150,8 @@
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
-                _man ? [self.instance playNameSound:@"ouch"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//ouch あいた！　痛い！
-            } else if ((motion.rotationRate.y > 2.5 || motion.rotationRate.y < -2.5) && !_animation) {
+                _man ? [self.instance speak:@"痛い" rate:0.2 pitchMultiplier:1.2] : [self.instance playSoundFile:@"robo_shock.mp3"];
+            } else if ((motion.rotationRate.y > 3.0 || motion.rotationRate.y < -3.0) && !_animation) {
                 [self progressChangeValue:-0.1];
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
@@ -160,8 +160,8 @@
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
-                _man ? [self.instance playNameSound:@"Wow"] : [self.instance playPathNameSound:@"robo_shock.mp3"];
-            } else if ((motion.rotationRate.z > 2.5 || motion.rotationRate.z < -2.5) && !_animation) {
+                _man ? [self.instance speak:@"いてえよ" rate:0.2 pitchMultiplier:0.6] : [self.instance playSoundFile:@"robo_shock.mp3"];
+            } else if ((motion.rotationRate.z > 3.5 || motion.rotationRate.z < -3.5) && !_animation) {
                 [self progressChangeValue:-0.1];
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
@@ -169,13 +169,13 @@
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
-                _man ? [self.instance playNameSound:@"ouch"] : [self.instance playPathNameSound:@"robo_shock.mp3"];//aargh ウワー
+                _man ? [self.instance speak:@"うわわわ" rate:0.2 pitchMultiplier:0.6] : [self.instance playSoundFile:@"robo_shock.mp3"];
             } else {
                 if (!_idling && !_animation) {
                     [reactionView.imageView setImage:reactionView.beforImage];
                 }
                 if (!_callSleepAction) {
-                    [self performSelector:@selector(sleepAction) withObject:nil afterDelay:7.0];
+                    [self performSelector:@selector(sleepAction) withObject:nil afterDelay:10.0];
                     _callSleepAction = YES;
                     _active = NO;
                 }
@@ -189,6 +189,7 @@
     reactionView.statusView.progress += value;
     
     if (reactionView.statusView.progress == 0.0f) {
+        [self.instance speak:@"もっと大切に扱って下さい" rate:0.2 pitchMultiplier:0.5];
         OverScreenView *overScreen = [[OverScreenView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
         [self.view addSubview:overScreen ];
         [_manager stopDeviceMotionUpdates];
@@ -212,7 +213,7 @@
 {
     if (!_active) {
         [reactionView toggleSleepImage];
-        [self.instance playNameSound:@"goo"];
+        [self.instance speak:@"goo" rate:0.1 pitchMultiplier:0.2];
         _idling = YES;
         [self progressChangeValue:0.1];
     }
@@ -222,11 +223,11 @@
 - (void)sayGreeting
 {
     if([_nowDate compare:_morningDate] == NSOrderedDescending && [_nowDate compare:_afternoonDate] == NSOrderedAscending){
-        [self.instance playNameSound:@"Good morning"];
+        [self.instance speak:@"おはよう" rate:0.1 pitchMultiplier:0.5];
     } else if ([_nowDate compare:_afternoonDate] == NSOrderedDescending && [_nowDate compare:_nightDate] == NSOrderedAscending){
-        [self.instance playNameSound:@"Hello"];
+        [self.instance speak:@"こんにちは" rate:0.1 pitchMultiplier:0.5];
     } else {
-        [self.instance playNameSound:@"Good evening"];
+        [self.instance speak:@"こんばんわ" rate:0.1 pitchMultiplier:0.5];
     }
 }
 
@@ -244,7 +245,7 @@
     
     if (!_animation) {
         _animation = YES;
-        _man ? [self.instance playNameSound:@"Hi"] : [self.instance playPathNameSound:@"robo_tap.wav"];
+        _man ? [self.instance speakRandom:0.3 pitchMultiplier:0.7] : [self.instance playSoundFile:@"robo_tap.wav"];
         [reactionView toggleTapImage:^(BOOL animation) {
             _animation = animation;
         }];

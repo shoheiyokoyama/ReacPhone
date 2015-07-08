@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface AudioTool : NSObject
-- (void)playPathNameSound:(NSString *)soundName;
-- (void)playNameSound:(NSString *)soundName;
+- (void)playSoundFile:(NSString *)fileName;
+- (void)playEnglishSound:(NSString *)speakContent;
+- (void)speak:(NSString *)speakContent rate:(float)rate pitchMultiplier:(float)pitchMultiplier;
+- (void)speakRandom:(float)rate pitchMultiplier:(float)pitchMultiplier;
 + (instancetype)sharedInstance;
 @end

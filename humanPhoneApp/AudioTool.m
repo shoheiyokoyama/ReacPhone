@@ -40,9 +40,9 @@ static AudioTool *instance = nil;
     return self;
 }
 
-- (void)playPathNameSound:(NSString *)soundName
+- (void)playSoundFile:(NSString *)fileName
 {
-    NSString *soundPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:soundName];
+    NSString *soundPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:fileName];
     NSURL *urlSound = [NSURL fileURLWithPath:soundPath];
     
     AVAudioPlayer* player = [[AVAudioPlayer alloc] initWithContentsOfURL:urlSound error:nil];
@@ -53,9 +53,33 @@ static AudioTool *instance = nil;
     [player play];
 }
 
-- (void)playNameSound:(NSString *)soundName
+- (void)playEnglishSound:(NSString *)speakContent;
 {
-    [_fliteController say:soundName withVoice:_slt];
+    [_fliteController say:speakContent withVoice:_slt];
+}
+
+- (void)speak:(NSString *)speakContent rate:(float)rate pitchMultiplier:(float)pitchMultiplier
+{
+    AVSpeechSynthesizer* speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    NSString* speakingText = speakContent;
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:speakingText];
+    utterance.rate = rate; //0.0〜1.0
+    utterance.pitchMultiplier = pitchMultiplier; //0.5〜2.0
+    utterance.volume = 0.5f; //0.0〜1.0
+    [speechSynthesizer speakUtterance:utterance];
+}
+
+- (void)speakRandom:(float)rate pitchMultiplier:(float)pitchMultiplier
+{
+    AVSpeechSynthesizer* speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    NSArray *array = [NSArray arrayWithObjects:@"お!", @"なんだよ", @"なんだし", @"なんだね", @"よ", @"暇なの?", @"何ですか?", @"はい!", @"ご用は何ですか？", nil];
+    int randomNummber = rand() % array.count;
+    NSString *speakContent = [array objectAtIndex:randomNummber];
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:speakContent];
+    utterance.rate = rate; //0.0〜1.0
+    utterance.pitchMultiplier = pitchMultiplier; //0.5〜2.0
+    utterance.volume = 0.5f; //0.0〜1.0
+    [speechSynthesizer speakUtterance:utterance];
 }
 
 @end
