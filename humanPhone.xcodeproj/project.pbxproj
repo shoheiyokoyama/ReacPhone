@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A76A01B48E257004AA3DA /* OverScreenView.m */; };
 		6D44CC1F1AF65099004B616B /* robo_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* robo_shock.mp3 */; };
+		6D4A426E1B5E2E2D00F98C92 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A426D1B5E2E2D00F98C92 /* TopView.swift */; };
 		6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7FB1EF1AFF0F05007202AE /* ReactionView.m */; };
 		6DB8377A1B29BEB3000AB9AC /* robo_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB837791B29BEB3000AB9AC /* robo_tap.wav */; };
 		6DB837801B29BF68000AB9AC /* robo_init.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8377F1B29BF68000AB9AC /* robo_init.mp3 */; };
@@ -46,6 +47,8 @@
 		6D3A769F1B48E257004AA3DA /* OverScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverScreenView.h; sourceTree = "<group>"; };
 		6D3A76A01B48E257004AA3DA /* OverScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverScreenView.m; sourceTree = "<group>"; };
 		6D44CC1E1AF65099004B616B /* robo_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_shock.mp3; path = ../HackHuaApp/robo_shock.mp3; sourceTree = "<group>"; };
+		6D4A426C1B5E2E2C00F98C92 /* humanPhoneApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "humanPhoneApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		6D4A426D1B5E2E2D00F98C92 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
 		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
 		6DB837791B29BEB3000AB9AC /* robo_tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = robo_tap.wav; path = "../../../../Desktop/sound/open hack/robo_tap.wav"; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 				6DBC7C681AE6774400F191CA /* Main.storyboard */,
 				6DBC7C6B1AE6774400F191CA /* Images.xcassets */,
 				6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */,
+				6D4A426C1B5E2E2C00F98C92 /* humanPhoneApp-Bridging-Header.h */,
 				6DBC7C621AE6774400F191CA /* humanPhoneApp.xcdatamodeld */,
 				6DBC7C5B1AE6774400F191CA /* Supporting Files */,
 			);
@@ -215,6 +219,7 @@
 				6D7FB1EF1AFF0F05007202AE /* ReactionView.m */,
 				6DBC7C851AE6810E00F191CA /* TobView.h */,
 				6DBC7C861AE6810E00F191CA /* TobView.m */,
+				6D4A426D1B5E2E2D00F98C92 /* TopView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
 				6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */,
 				6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */,
+				6D4A426E1B5E2E2D00F98C92 /* TopView.swift in Sources */,
 				6DBC7C5E1AE6774400F191CA /* main.m in Sources */,
 				6DB837A21B2B0E33000AB9AC /* AudioTool.m in Sources */,
 				6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */,
@@ -505,14 +511,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
 				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";
+				SWIFT_OBJC_BRIDGING_HEADER = "humanPhoneApp/humanPhoneApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -522,6 +530,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shohei Yokoyama (3KU3GWQLG8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -529,10 +538,10 @@
 					"$(PROJECT_DIR)/OpenEarsDistribution/Framework",
 				);
 				INFOPLIST_FILE = humanPhoneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = humanPhoneApp;
 				PROVISIONING_PROFILE = "50b0ea68-bce1-4ae2-a01a-36b7c37da2be";
+				SWIFT_OBJC_BRIDGING_HEADER = "humanPhoneApp/humanPhoneApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
