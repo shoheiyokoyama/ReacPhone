@@ -157,7 +157,7 @@
 		6DBC7C5A1AE6774400F191CA /* humanPhoneApp */ = {
 			isa = PBXGroup;
 			children = (
-				6DBC7C881AE6811400F191CA /* View */,
+				6DBC7C881AE6811400F191CA /* Views */,
 				6DBC7C841AE6807300F191CA /* Controller */,
 				6DBC7C5F1AE6774400F191CA /* AppDelegate.h */,
 				6DBC7C601AE6774400F191CA /* AppDelegate.m */,
@@ -210,7 +210,7 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		6DBC7C881AE6811400F191CA /* View */ = {
+		6DBC7C881AE6811400F191CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6D3A769F1B48E257004AA3DA /* OverScreenView.h */,
@@ -221,7 +221,7 @@
 				6DBC7C861AE6810E00F191CA /* TobView.m */,
 				6D4A426D1B5E2E2D00F98C92 /* TopView.swift */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		EC098C1F38CCB16CCA4737A3 /* Pods */ = {
