@@ -30,6 +30,7 @@ class TopView: UIView, UITextFieldDelegate {
         self.addSubview(logoImageView)
         
         startButton.setTitle("START", forState: .Normal)
+        startButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 18.0)
         startButton.contentEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
         startButton.backgroundColor = UIColor.yellowColor()
         startButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -40,10 +41,29 @@ class TopView: UIView, UITextFieldDelegate {
         startButton.addGestureRecognizer(buttonTap)
         self.addSubview(startButton)
         
-        
+        startRobotButton.setTitle("START ROBOT", forState: .Normal)
+        startRobotButton.titleLabel?.font = UIFont(name: "ChalkboardSE-Regular", size: 18.0)
+        startRobotButton.contentEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
+        startRobotButton.backgroundColor = UIColor.yellowColor()
+        startRobotButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        startRobotButton.layer.cornerRadius = 5.0
+        startRobotButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
+        startRobotButton.userInteractionEnabled = true
+        let robotbuttonTap = UITapGestureRecognizer(target: startRobotButton, action: "tapRobotButton:")
+        startRobotButton.addGestureRecognizer(robotbuttonTap)
+        self.addSubview(startRobotButton)
         
         bannerView.adUnitID = "ca-app-pub-9398695746908582/1848241756"
         self.addSubview(bannerView)
+        
+        textField.placeholder = "What's your name?"
+        textField.textAlignment = NSTextAlignment.Left
+        textField.borderStyle = UITextBorderStyle.RoundedRect
+        textField.font = UIFont(name: "ChalkboardSE-Regular", size: 14.0)
+//        textField.keyboardType = UIKeyboardAppearance.Default
+        textField.clearButtonMode = UITextFieldViewMode.Never
+        textField.delegate = self
+        self.addSubview(textField)
         
     }
     
@@ -59,12 +79,42 @@ class TopView: UIView, UITextFieldDelegate {
         logoFrame.origin.y = (CGRectGetHeight(self.bounds) / 2) - 170.0
         logoImageView.frame = logoFrame
         
-//        var buttonFrame: CGRect = 
+        var startButtonFrame: CGRect = startRobotButton.frame
+        startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(startButton.frame)) / 2
+        startButtonFrame.origin.y = CGRectGetHeight(self.bounds) - 190.0
+        startButton.frame = startButtonFrame
+        
+        var robotButtonFrame: CGRect = startRobotButton.frame
+        startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(startRobotButton.frame)) / 2
+        startButtonFrame.origin.y = CGRectGetHeight(self.bounds) - 120.0
+        startRobotButton.frame = startButtonFrame
+        
+        var bannerFrame: CGRect = bannerView.frame
+        bannerFrame.origin.x = CGRectGetWidth(self.bounds) - bannerView.frame.size.height
+        bannerView.frame = bannerFrame
+        
+        var textFrame: CGRect = textField.frame
+        startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(textField.frame)) / 2
+        startButtonFrame.origin.y = CGRectGetMaxY(logoImageView.frame) + 50.0
+        textField.frame = startButtonFrame
+        
     }
+    
     func tapStartButton (sender: UITapGestureRecognizer) {
         
     }
+    
+    func tapRobotButton (sender: UITapGestureRecognizer) {
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }
+
 
 
 

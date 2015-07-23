@@ -81,7 +81,7 @@
     
     CGRect Frame = _startButton.frame;
     Frame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(_startButton.frame)) / 2;
-    Frame.origin.y = (CGRectGetHeight(self.bounds)) - 190.0f;
+    Frame.origin.y = CGRectGetHeight(self.bounds) - 190.0f;
     _startButton.frame = Frame;
     
     CGRect robotFrame = _startRoboButton.frame;
