@@ -1,21 +1,21 @@
 //
-//  TobView.m
+//  TopView.m
 //  humanPhoneApp
 //
 //  Created by Shohei Yokoyama on 2015/04/21.
 //  Copyright (c) 2015年 shohei. All rights reserved.
 //
 
-#import "TobView.h"
+#import "TopView.h"
 
-@interface TobView ()<UITextFieldDelegate>
+@interface TopView ()<UITextFieldDelegate>
 @property (nonatomic) UIImageView *logoImageView;
 @property (nonatomic) RTButton *startButton;
 @property (nonatomic) RTButton *startRoboButton;
 @property (nonatomic) UITextField *textField;
 @end
 
-@implementation TobView
+@implementation TopView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

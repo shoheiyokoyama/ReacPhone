@@ -11,10 +11,12 @@ import GoogleMobileAds
 
 class TopView: UIView, UITextFieldDelegate {
     private var logoImageView: UIImageView
-    private let textField: UITextField
+    internal let textField: UITextField
     internal var bannerView: GADBannerView
     private var startButton: UIButton
     private var startRobotButton: UIButton
+    internal var tappedButton:((NSString) -> ())?
+    internal var tappedRobotButton:(() -> ())?
     
     override init (frame: CGRect) {
         logoImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 300.0, 70.0))
@@ -22,6 +24,7 @@ class TopView: UIView, UITextFieldDelegate {
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         startButton = UIButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
         startRobotButton = UIButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
+        
         super.init(frame:frame)
         
         self.backgroundColor = UIColor(red: 255/255.0, green:240/255.0, blue:70/255.0, alpha: 1.0)
@@ -37,7 +40,7 @@ class TopView: UIView, UITextFieldDelegate {
         startButton.layer.cornerRadius = 5.0
         startButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
         startButton.userInteractionEnabled = true
-        let buttonTap = UITapGestureRecognizer(target: startButton, action: "tapStartButton:")
+        let buttonTap = UITapGestureRecognizer(target: self, action: "tapStartButton:")
         startButton.addGestureRecognizer(buttonTap)
         self.addSubview(startButton)
         
@@ -49,7 +52,7 @@ class TopView: UIView, UITextFieldDelegate {
         startRobotButton.layer.cornerRadius = 5.0
         startRobotButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
         startRobotButton.userInteractionEnabled = true
-        let robotbuttonTap = UITapGestureRecognizer(target: startRobotButton, action: "tapRobotButton:")
+        let robotbuttonTap = UITapGestureRecognizer(target: self, action: "tapRobotButton:")
         startRobotButton.addGestureRecognizer(robotbuttonTap)
         self.addSubview(startRobotButton)
         
@@ -100,12 +103,13 @@ class TopView: UIView, UITextFieldDelegate {
         
     }
     
-    func tapStartButton (sender: UITapGestureRecognizer) {
+    func tapStartButton (gestureRecognizer: UITapGestureRecognizer) {
         
+        tappedButton!(textField.text)
     }
     
-    func tapRobotButton (sender: UITapGestureRecognizer) {
-        
+    func tapRobotButton (gestureRecognizer: UITapGestureRecognizer) {
+        tappedRobotButton!()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -114,9 +118,6 @@ class TopView: UIView, UITextFieldDelegate {
         return true
     }
 }
-
-
-
 
 //class RTButton: UIButton {
 //    

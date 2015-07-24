@@ -25,7 +25,7 @@
 		6DBC7C6C1AE6774400F191CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C6B1AE6774400F191CA /* Images.xcassets */; };
 		6DBC7C6F1AE6774400F191CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */; };
 		6DBC7C7B1AE6774400F191CA /* humanPhoneAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */; };
-		6DBC7C871AE6810E00F191CA /* TobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C861AE6810E00F191CA /* TobView.m */; };
+		6DBC7C871AE6810E00F191CA /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C861AE6810E00F191CA /* TopView.m */; };
 		6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */; };
 		B5025B17E7A6A09929A3E72B /* libPods-humanPhoneApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */; };
 /* End PBXBuildFile section */
@@ -70,8 +70,8 @@
 		6DBC7C741AE6774400F191CA /* humanPhoneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = humanPhoneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC7C791AE6774400F191CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBC7C7A1AE6774400F191CA /* humanPhoneAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = humanPhoneAppTests.m; sourceTree = "<group>"; };
-		6DBC7C851AE6810E00F191CA /* TobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TobView.h; sourceTree = "<group>"; };
-		6DBC7C861AE6810E00F191CA /* TobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TobView.m; sourceTree = "<group>"; };
+		6DBC7C851AE6810E00F191CA /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		6DBC7C861AE6810E00F191CA /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
 		6DBC7C891AE686A500F191CA /* ReactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionViewController.h; sourceTree = "<group>"; };
 		6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionViewController.m; sourceTree = "<group>"; };
 		7CD7DD05D933BC5042E3322F /* Pods-humanPhoneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-humanPhoneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,8 +212,8 @@
 				6D3A76A01B48E257004AA3DA /* OverScreenView.m */,
 				6D7FB1EE1AFF0F05007202AE /* ReactionView.h */,
 				6D7FB1EF1AFF0F05007202AE /* ReactionView.m */,
-				6DBC7C851AE6810E00F191CA /* TobView.h */,
-				6DBC7C861AE6810E00F191CA /* TobView.m */,
+				6DBC7C851AE6810E00F191CA /* TopView.h */,
+				6DBC7C861AE6810E00F191CA /* TopView.m */,
 				6D4A426D1B5E2E2D00F98C92 /* TopView.swift */,
 			);
 			name = Views;
@@ -368,7 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DBC7C641AE6774400F191CA /* humanPhoneApp.xcdatamodeld in Sources */,
-				6DBC7C871AE6810E00F191CA /* TobView.m in Sources */,
+				6DBC7C871AE6810E00F191CA /* TopView.m in Sources */,
 				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
 				6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */,
 				6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */,

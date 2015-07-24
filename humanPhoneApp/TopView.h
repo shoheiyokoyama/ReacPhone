@@ -1,5 +1,5 @@
 //
-//  TobView.h
+//  TopView.h
 //  humanPhoneApp
 //
 //  Created by Shohei Yokoyama on 2015/04/21.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GADBannerView.h>
 
-@interface TobView : UIView
+@interface TopView : UIView
 @property (copy) void (^tappedButton)(NSString *name);
 @property (copy) void (^tappedRobotButton)();
 @property (nonatomic) GADBannerView *bannerView;
