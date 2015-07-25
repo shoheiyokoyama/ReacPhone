@@ -63,7 +63,7 @@ class TopView: UIView, UITextFieldDelegate {
         textField.textAlignment = NSTextAlignment.Left
         textField.borderStyle = UITextBorderStyle.RoundedRect
         textField.font = UIFont(name: "ChalkboardSE-Regular", size: 14.0)
-//        textField.keyboardType = UIKeyboardAppearance.Default
+        textField.keyboardType = UIKeyboardType.Default
         textField.clearButtonMode = UITextFieldViewMode.Never
         textField.delegate = self
         self.addSubview(textField)
@@ -93,7 +93,7 @@ class TopView: UIView, UITextFieldDelegate {
         startRobotButton.frame = robotButtonFrame
         
         var bannerFrame: CGRect = bannerView.frame
-        bannerFrame.origin.x = CGRectGetWidth(self.bounds) - bannerView.frame.size.height
+        bannerFrame.origin.y = CGRectGetHeight(self.bounds) - bannerView.frame.size.height
         bannerView.frame = bannerFrame
         
         var textFrame: CGRect = textField.frame
