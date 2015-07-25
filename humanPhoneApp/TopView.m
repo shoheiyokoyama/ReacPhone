@@ -147,7 +147,7 @@
 {
     [super setSelected:selected];
     if (selected) {
-        self.backgroundColor =[self colorWithHsvRatio:[UIColor yellowColor] hueRatio:1.0 saturationRatio:0.6 brightnessRatio:1.4];
+        self.backgroundColor = [self colorWithHsvRatio:[UIColor yellowColor] hueRatio:1.0 saturationRatio:0.6 brightnessRatio:1.4];
         static CGFloat selectedScale = 0.9f;
         self.transform = CGAffineTransformMakeScale(selectedScale, selectedScale);
     } else {

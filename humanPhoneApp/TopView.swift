@@ -13,8 +13,8 @@ class TopView: UIView, UITextFieldDelegate {
     private var logoImageView: UIImageView
     internal let textField: UITextField
     internal var bannerView: GADBannerView
-    private var startButton: UIButton
-    private var startRobotButton: UIButton
+    private var startButton: RTButton
+    private var startRobotButton: RTButton
     internal var tappedButton:((NSString) -> ())?
     internal var tappedRobotButton:(() -> ())?
     
@@ -22,8 +22,8 @@ class TopView: UIView, UITextFieldDelegate {
         logoImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 300.0, 70.0))
         textField = UITextField(frame: CGRectMake(0.0, 0.0, 200.0, 30))
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        startButton = UIButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
-        startRobotButton = UIButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
+        startButton = RTButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
+        startRobotButton = RTButton(frame: CGRectMake(0.0, 0.0, 200.0, 40.0))
         
         super.init(frame:frame)
         
@@ -82,24 +82,24 @@ class TopView: UIView, UITextFieldDelegate {
         logoFrame.origin.y = (CGRectGetHeight(self.bounds) / 2) - 170.0
         logoImageView.frame = logoFrame
         
-        var startButtonFrame: CGRect = startRobotButton.frame
+        var startButtonFrame: CGRect = startButton.frame
         startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(startButton.frame)) / 2
         startButtonFrame.origin.y = CGRectGetHeight(self.bounds) - 190.0
         startButton.frame = startButtonFrame
         
         var robotButtonFrame: CGRect = startRobotButton.frame
-        startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(startRobotButton.frame)) / 2
-        startButtonFrame.origin.y = CGRectGetHeight(self.bounds) - 120.0
-        startRobotButton.frame = startButtonFrame
+        robotButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(startRobotButton.frame)) / 2
+        robotButtonFrame.origin.y = CGRectGetHeight(self.bounds) - 120.0
+        startRobotButton.frame = robotButtonFrame
         
         var bannerFrame: CGRect = bannerView.frame
         bannerFrame.origin.x = CGRectGetWidth(self.bounds) - bannerView.frame.size.height
         bannerView.frame = bannerFrame
         
         var textFrame: CGRect = textField.frame
-        startButtonFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(textField.frame)) / 2
-        startButtonFrame.origin.y = CGRectGetMaxY(logoImageView.frame) + 50.0
-        textField.frame = startButtonFrame
+        textFrame.origin.x = (CGRectGetWidth(self.bounds) - CGRectGetWidth(textField.frame)) / 2
+        textFrame.origin.y = CGRectGetMaxY(logoImageView.frame) + 50.0
+        textField.frame = textFrame
         
     }
     
@@ -119,24 +119,45 @@ class TopView: UIView, UITextFieldDelegate {
     }
 }
 
-//class RTButton: UIButton {
-//    
-//    override func setTitleColor(color: UIColor?, forState state: UIControlState) {
-//        
-//        var baseColor: UIColor = UIColor.yellowColor()
-//        self.backgroundColor = colorWithBrightnessFactor(baseColor: UIColor, 1.0: CGFloat, saturationRatio: 0.6, brightnessRatio: 1.4)
-//        
-//    }
-//    
-//    func colorWithBrightnessFactor(baseColor: UIColor, hueRatio: CGFloat, saturationRatio: CGFloat, brightnessRatio: CGFloat) -> (UIColor) {
-//        var hue: CGFloat = 0;
-//        var saturation: CGFloat = 0;
-//        var brightness = 0;
-//        var alpha: CGFloat = 0;
-//        
-//        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-//            return UIColor(hue: hue * hueRatio, saturation: saturation * saturationRatio, brightness: brightness * saturationRatio, alpha: alpha)
-//        }
-//        return self;
-//    }
-//}
+class RTButton: UIButton {
+    
+    override var highlighted: Bool {
+        didSet {
+            if (highlighted) {
+                self.backgroundColor = colorWithBrightnessFactor(UIColor.yellowColor(), hueRatio: 1.0, saturationRatio: 0.6, brightnessRatio: 1.4)
+                var scale: CGFloat = 0.9
+                self.transform = CGAffineTransformMakeScale(scale, scale)
+            }
+            else {
+                self.backgroundColor = UIColor.yellowColor()
+                self.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            }
+        }
+    }
+    
+    override var selected: Bool {
+        didSet {
+            if (selected) {
+                self.backgroundColor = colorWithBrightnessFactor(UIColor.yellowColor(), hueRatio: 1.0, saturationRatio: 0.6, brightnessRatio: 1.4)
+                var scale: CGFloat = 0.9
+                self.transform = CGAffineTransformMakeScale(scale, scale)
+            }
+            else {
+                self.backgroundColor = UIColor.yellowColor()
+                self.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            }
+        }
+    }
+
+    func colorWithBrightnessFactor(baseColor: UIColor, hueRatio: CGFloat, saturationRatio: CGFloat, brightnessRatio: CGFloat) -> (UIColor) {
+        var hue: CGFloat = 0;
+        var saturation: CGFloat = 0;
+        var brightness: CGFloat = 0;
+        var alpha: CGFloat = 0;
+        
+        if baseColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return UIColor(hue: (hue * hueRatio), saturation: (saturation * saturationRatio), brightness: (brightness * brightnessRatio), alpha: alpha)
+        }
+        return baseColor;
+    }
+}
