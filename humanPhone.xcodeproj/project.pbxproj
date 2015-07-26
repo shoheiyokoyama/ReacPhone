@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D08014A1B64CE5500145FCD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0801491B64CE5500145FCD /* HomeViewController.swift */; };
 		6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A76A01B48E257004AA3DA /* OverScreenView.m */; };
 		6D44CC1F1AF65099004B616B /* robo_shock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D44CC1E1AF65099004B616B /* robo_shock.mp3 */; };
 		6D4A426E1B5E2E2D00F98C92 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A426D1B5E2E2D00F98C92 /* TopView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		099DF3164AA6C4725F2A2F01 /* libPods-humanPhoneApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-humanPhoneApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CB9D45FD93F015480A7E48 /* Pods-humanPhoneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-humanPhoneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-humanPhoneApp/Pods-humanPhoneApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6D0801491B64CE5500145FCD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6D3A769F1B48E257004AA3DA /* OverScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverScreenView.h; sourceTree = "<group>"; };
 		6D3A76A01B48E257004AA3DA /* OverScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverScreenView.m; sourceTree = "<group>"; };
 		6D44CC1E1AF65099004B616B /* robo_shock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = robo_shock.mp3; path = ../HackHuaApp/robo_shock.mp3; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				6DBC7C651AE6774400F191CA /* TopViewController.h */,
 				6DBC7C661AE6774400F191CA /* TopViewController.m */,
+				6D0801491B64CE5500145FCD /* HomeViewController.swift */,
 				6DBC7C891AE686A500F191CA /* ReactionViewController.h */,
 				6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */,
 			);
@@ -371,6 +374,7 @@
 				6DBC7C871AE6810E00F191CA /* TopView.m in Sources */,
 				6DBC7C671AE6774400F191CA /* TopViewController.m in Sources */,
 				6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */,
+				6D08014A1B64CE5500145FCD /* HomeViewController.swift in Sources */,
 				6D3A76A11B48E257004AA3DA /* OverScreenView.m in Sources */,
 				6D4A426E1B5E2E2D00F98C92 /* TopView.swift in Sources */,
 				6D4A42771B60E18A00F98C92 /* AppDelegate.swift in Sources */,

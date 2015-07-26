@@ -104,7 +104,6 @@ class TopView: UIView, UITextFieldDelegate {
     }
     
     func tapStartButton (gestureRecognizer: UITapGestureRecognizer) {
-        
         tappedButton!(textField.text)
     }
     

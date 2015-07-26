@@ -14,7 +14,6 @@
 
 @interface TopViewController ()
 @property (nonatomic, strong) TopView *topView;
-@property (nonatomic) GADBannerView *bannerView;
 @end
 
 @implementation TopViewController
