@@ -7,10 +7,9 @@
 //
 
 #import "TopViewController.h"
-//#import "TopView.h"
+#import "TopView.h"
 #import "ReactionViewController.h"
 #import <GoogleMobileAds/GADBannerView.h>
-#import "humanPhoneApp-Swift.h"
 
 @interface TopViewController ()
 @property (nonatomic, strong) TopView *topView;

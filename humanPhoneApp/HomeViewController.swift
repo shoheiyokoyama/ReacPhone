@@ -35,7 +35,8 @@ class HomeViewController: UIViewController {
 
     func callbackFromTopView() {
         homeView.tappedButton = { (text: NSString) -> Void in
-            let con = ReactionViewController(man: true, name: text as String)
+//            let con = ReactionViewController(man: true, name: text as String)
+            let con = ReacPhoneViewController(nonRobot: true, name: text as NSString)
             let nav = UINavigationController(rootViewController: con)
             nav.navigationBar.backgroundColor = UIColor.yellowColor()
             nav.navigationBar.tintColor = UIColor.lightGrayColor()
@@ -44,6 +45,7 @@ class HomeViewController: UIViewController {
         
         homeView.tappedRobotButton = { () -> Void in
             let con = ReactionViewController(man: false)
+//            let con = ReacPhoneViewController(nonRobot: false, name: text as NSString)
             let nav = UINavigationController(rootViewController: con)
             nav.navigationBar.backgroundColor = UIColor.yellowColor()
             nav.navigationBar.tintColor = UIColor.lightGrayColor()
