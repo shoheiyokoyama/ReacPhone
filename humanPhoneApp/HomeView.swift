@@ -1,5 +1,5 @@
 //
-//  TopView.swift
+//  HomeView.swift
 //  humanPhone
 //
 //  Created by Shohei Yokoyama on 2015/07/21.
@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class TopView: UIView, UITextFieldDelegate {
+class HomeView: UIView, UITextFieldDelegate {
     private var logoImageView: UIImageView
     internal let textField: UITextField
     internal var bannerView: GADBannerView

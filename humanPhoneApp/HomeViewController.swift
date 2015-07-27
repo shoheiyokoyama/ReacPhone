@@ -11,15 +11,15 @@ import GoogleMobileAds
 
 class HomeViewController: UIViewController {
 
-    private let topView: TopView
+    private let homeView: HomeView
     init () {
-        topView = TopView(frame: UIScreen.mainScreen().bounds)
+        homeView = HomeView(frame: UIScreen.mainScreen().bounds)
         
         super.init(nibName: nil, bundle: nil)
         
-        topView.bannerView.rootViewController = self
-        topView.bannerView.loadRequest(GADRequest())
-        self.view.addSubview(topView)
+        homeView.bannerView.rootViewController = self
+        homeView.bannerView.loadRequest(GADRequest())
+        self.view.addSubview(homeView)
         
     }
 
@@ -30,7 +30,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topView.tappedButton = { (text: NSString) -> Void in
+        self.callbackFromTopView()
+    }
+
+    func callbackFromTopView() {
+        homeView.tappedButton = { (text: NSString) -> Void in
             let con = ReactionViewController(man: true, name: text as String)
             let nav = UINavigationController(rootViewController: con)
             nav.navigationBar.backgroundColor = UIColor.yellowColor()
@@ -38,7 +42,7 @@ class HomeViewController: UIViewController {
             self.presentViewController(nav, animated: true, completion: nil)
         }
         
-        topView.tappedRobotButton = { () -> Void in
+        homeView.tappedRobotButton = { () -> Void in
             let con = ReactionViewController(man: false)
             let nav = UINavigationController(rootViewController: con)
             nav.navigationBar.backgroundColor = UIColor.yellowColor()
@@ -46,7 +50,7 @@ class HomeViewController: UIViewController {
             self.presentViewController(nav, animated: true, completion: nil)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
