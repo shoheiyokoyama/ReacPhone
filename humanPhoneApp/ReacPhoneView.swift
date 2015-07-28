@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ReacPhoneViewDelegate {
+    func tappedView()
+}
+
 class ReacPhoneView: UIView {
 
     internal var imageView: UIImageView
@@ -18,6 +22,7 @@ class ReacPhoneView: UIView {
     private var sleepImage: UIImage
     private var helloImage: UIImage
     private var tapImage: UIImage
+    var delegate: ReacPhoneViewDelegate?
     
     init (frame: CGRect, nonRobot: Bool) {
         imageView = UIImageView()
@@ -74,8 +79,8 @@ class ReacPhoneView: UIView {
         statusView.frame = statusFrame
     }
     
-    func viewTapAction (gestureRecognizer: UITapGestureRecognizer){
-        //tap action
+    func viewTapAction (gestureRecognizer: UITapGestureRecognizer) {
+        delegate!.tappedView()
     }
 
 }

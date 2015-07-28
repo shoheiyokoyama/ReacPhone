@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReacPhoneViewController: UIViewController {
+class ReacPhoneViewController: UIViewController, ReacPhoneViewDelegate {
 
     private var nonRob: Bool?
     private var userName: NSString?
@@ -21,6 +21,7 @@ class ReacPhoneViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         nonRob = nonRobot
         userName = name
+        reacPhoneView.delegate = self
         
         self.view.addSubview(reacPhoneView)
     }
@@ -38,6 +39,10 @@ class ReacPhoneViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tappedView() {
+        AudioTool
     }
 
 }
