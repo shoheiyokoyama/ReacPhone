@@ -79,7 +79,6 @@
     [self imageAnimation:_helloImage animateScale:1.2f completionHandler:completionHandler];
 }
 
-
 - (void)toggleSleepImage
 {
     [_imageView setImage:_sleepImage];

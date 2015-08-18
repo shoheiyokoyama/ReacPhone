@@ -157,28 +157,33 @@
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
+                [self cancelSleepAction];
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
+                _callSleepAction = NO;
                 _man ? [self.instance speak:@"痛い" rate:0.2 pitchMultiplier:1.2] : [self.instance playSoundFile:@"robo_shock.mp3"];
             } else if ((motion.rotationRate.y > 3.0 || motion.rotationRate.y < -3.0) && !_animation) {
                 [self progressChangeValue:-0.1];
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
-                
+                [self cancelSleepAction];
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
+                _callSleepAction = NO;
                 _man ? [self.instance speak:@"いてえよ" rate:0.2 pitchMultiplier:0.6] : [self.instance playSoundFile:@"robo_shock.mp3"];
             } else if ((motion.rotationRate.z > 3.5 || motion.rotationRate.z < -3.5) && !_animation) {
                 [self progressChangeValue:-0.1];
                 [reactionView toggleImage:^(BOOL animation) {
                     _animation = animation;
                 }];
+                [self cancelSleepAction];
                 _animation = YES;
                 _active = YES;
                 _idling = NO;
+                _callSleepAction = NO;
                 _man ? [self.instance speak:@"うわわわ" rate:0.2 pitchMultiplier:0.6] : [self.instance playSoundFile:@"robo_shock.mp3"];
             } else {
                 if (!_idling && !_animation) {
@@ -192,6 +197,24 @@
             }
         }];
     }
+}
+
+- (void)cancelSleepAction
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                             selector:@selector(sleepAction)
+                                               object:nil];
+}
+
+- (void)sleepAction
+{
+    if (!_active) {
+        [reactionView toggleSleepImage];
+        [self.instance speak:@"goo" rate:0.1 pitchMultiplier:0.2];
+        _idling = YES;
+        [self progressChangeValue:0.1];
+    }
+    _callSleepAction = NO;
 }
 
 - (void)progressChangeValue:(float)value
@@ -217,17 +240,6 @@
     } else {
         reactionView.statusView.tintColor = [UIColor colorWithRed:0.27f green:0.85f blue:0.46f alpha:1.0f];
     }
-}
-
-- (void)sleepAction
-{
-    if (!_active) {
-        [reactionView toggleSleepImage];
-        [self.instance speak:@"goo" rate:0.1 pitchMultiplier:0.2];
-        _idling = YES;
-        [self progressChangeValue:0.1];
-    }
-    _callSleepAction = NO;
 }
 
 - (void)sayGreeting

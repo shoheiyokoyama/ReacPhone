@@ -12,19 +12,21 @@ protocol ReacPhoneViewDelegate {
     func tappedView()
 }
 
-class ReacPhoneView: UIView {
+typealias AnimationCompletionHandler = (animation: Bool) -> Void
 
-    internal var imageView: UIImageView
-    internal var statusView: UIProgressView
+class ReacPhoneView: UIView {
+    
+    var imageView: UIImageView
+    var statusView: UIProgressView
     var nonRob: Bool
-    internal var beforeImage: UIImage
-    internal var reactImage: UIImage
-    private var sleepImage: UIImage
-    private var helloImage: UIImage
-    private var tapImage: UIImage
+    var beforeImage: UIImage
+    var reactImage: UIImage
+    var sleepImage: UIImage
+    var helloImage: UIImage
+    var tapImage: UIImage
     var delegate: ReacPhoneViewDelegate?
     
-    init (frame: CGRect, nonRobot: Bool) {
+    override init (frame: CGRect) {
         imageView = UIImageView()
         statusView = UIProgressView()
         nonRob = Bool()
@@ -36,22 +38,6 @@ class ReacPhoneView: UIView {
         
         super.init(frame: frame)
         
-        nonRob = nonRobot
-        
-        if nonRob {
-            beforeImage = UIImage(named: "nomal")!
-            reactImage = UIImage(named: "shock")!
-            sleepImage = UIImage(named: "sleep")!
-            helloImage = UIImage(named: "hello")!
-            tapImage = UIImage(named: "tap")!
-        } else {
-            beforeImage = UIImage(named: "robo_nomal")!
-            reactImage = UIImage(named: "robo_shock")!
-            sleepImage = UIImage(named: "robo_sleep")!
-            helloImage = UIImage(named: "robo_hello")!
-            tapImage = UIImage(named: "robo_hello")!
-        }
-        
         imageView.frame = self.bounds
         self.addSubview(imageView)
         
@@ -60,10 +46,20 @@ class ReacPhoneView: UIView {
         self.addGestureRecognizer(tapGesture)
         
         self.addSubview(statusView)
-        
-        
     }
-
+    
+    convenience init (frame: CGRect, nonRobot: Bool) {
+        
+        self.init(frame: frame)
+        
+        nonRob = nonRobot
+        beforeImage = nonRob ? UIImage(named: "nomal")! : UIImage(named: "robo_nomal")!
+        reactImage = nonRob ? UIImage(named: "shock")! : UIImage(named: "robo_shock")!
+        sleepImage = nonRob ? UIImage(named: "sleep")! : UIImage(named: "robo_sleep")!
+        helloImage = nonRob ? UIImage(named: "hello")! : UIImage(named: "robo_hello")!
+        tapImage = nonRob ? UIImage(named: "tap")! : UIImage(named: "robo_hello")!
+    }
+    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -79,8 +75,38 @@ class ReacPhoneView: UIView {
         statusView.frame = statusFrame
     }
     
+    func toggleImage(completionHandler: AnimationCompletionHandler) {
+        imageAnimation(reactImage, animationScale: 1.3, completionHandler: completionHandler)
+    }
+    
+    func toggleSleepImage() {
+        imageView.image = sleepImage
+    }
+    
+    func toggleTapImage(completionHandler: AnimationCompletionHandler) {
+        imageAnimation(tapImage, animationScale: 1.3, completionHandler: completionHandler)
+    }
+    
+    func toggleHelloImage(completionHandler: AnimationCompletionHandler) {
+        imageAnimation(helloImage, animationScale: 1.3, completionHandler: completionHandler)
+    }
+    
+    func imageAnimation(image: UIImage, animationScale: CGFloat, completionHandler: AnimationCompletionHandler) {
+        imageView.image = image
+        UIView.animateWithDuration(0.5,
+            delay: 0.0,
+            options: UIViewAnimationOptions.CurveLinear,
+            animations: { () -> Void in
+                self.imageView.transform = CGAffineTransformMakeScale(animationScale, animationScale)
+                self.imageView.transform = CGAffineTransformIdentity
+            }) { (Bool) -> Void in
+                completionHandler(animation: false)
+        }
+    }
+    
+    //MARK: TapAction
     func viewTapAction (gestureRecognizer: UITapGestureRecognizer) {
         delegate!.tappedView()
     }
-
+    
 }

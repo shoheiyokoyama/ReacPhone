@@ -13,6 +13,7 @@
 		6D4A426E1B5E2E2D00F98C92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A426D1B5E2E2D00F98C92 /* HomeView.swift */; };
 		6D4A42771B60E18A00F98C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A42761B60E18A00F98C92 /* AppDelegate.swift */; };
 		6D7FB1F01AFF0F05007202AE /* ReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7FB1EF1AFF0F05007202AE /* ReactionView.m */; };
+		6D82C7721B836CFD00F920C8 /* AudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D82C7711B836CFD00F920C8 /* AudioTool.swift */; };
 		6D949C0D1B66266400628039 /* ReacPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D949C0C1B66266400628039 /* ReacPhoneViewController.swift */; };
 		6D949C0F1B6627C400628039 /* ReacPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D949C0E1B6627C400628039 /* ReacPhoneView.swift */; };
 		6DB8377A1B29BEB3000AB9AC /* robo_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6DB837791B29BEB3000AB9AC /* robo_tap.wav */; };
@@ -55,6 +56,7 @@
 		6D4A42761B60E18A00F98C92 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D7FB1EE1AFF0F05007202AE /* ReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionView.h; sourceTree = "<group>"; };
 		6D7FB1EF1AFF0F05007202AE /* ReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactionView.m; sourceTree = "<group>"; };
+		6D82C7711B836CFD00F920C8 /* AudioTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTool.swift; sourceTree = "<group>"; };
 		6D949C0C1B66266400628039 /* ReacPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReacPhoneViewController.swift; sourceTree = "<group>"; };
 		6D949C0E1B6627C400628039 /* ReacPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReacPhoneView.swift; sourceTree = "<group>"; };
 		6DB837791B29BEB3000AB9AC /* robo_tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = robo_tap.wav; path = "../../../../Desktop/sound/open hack/robo_tap.wav"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */,
 				6D0801491B64CE5500145FCD /* HomeViewController.swift */,
 				6D949C0C1B66266400628039 /* ReacPhoneViewController.swift */,
+				6D82C7711B836CFD00F920C8 /* AudioTool.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				6D4A42771B60E18A00F98C92 /* AppDelegate.swift in Sources */,
 				6D949C0D1B66266400628039 /* ReacPhoneViewController.swift in Sources */,
 				6DB837A21B2B0E33000AB9AC /* AudioTool.m in Sources */,
+				6D82C7721B836CFD00F920C8 /* AudioTool.swift in Sources */,
 				6DBC7C8B1AE686A500F191CA /* ReactionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
