@@ -167,6 +167,7 @@
 				6D4A42761B60E18A00F98C92 /* AppDelegate.swift */,
 				6DB837A01B2B0E33000AB9AC /* AudioTool.h */,
 				6DB837A11B2B0E33000AB9AC /* AudioTool.m */,
+				6D82C7711B836CFD00F920C8 /* AudioTool.swift */,
 				6DBC7C681AE6774400F191CA /* Main.storyboard */,
 				6DBC7C6B1AE6774400F191CA /* Images.xcassets */,
 				6DBC7C6D1AE6774400F191CA /* LaunchScreen.xib */,
@@ -211,7 +212,6 @@
 				6DBC7C8A1AE686A500F191CA /* ReactionViewController.m */,
 				6D0801491B64CE5500145FCD /* HomeViewController.swift */,
 				6D949C0C1B66266400628039 /* ReacPhoneViewController.swift */,
-				6D82C7711B836CFD00F920C8 /* AudioTool.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
