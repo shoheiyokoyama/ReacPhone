@@ -10,10 +10,23 @@ import UIKit
 
 class AudioTool: NSObject {
    
-    class var sharedInstance: AudioTool{
-        struct Static{
+    class var sharedInstance: AudioTool {
+        
+        struct Static {
             static let instance: AudioTool = AudioTool()
         }
         return Static.instance
+    }
+    
+    func playSoundFile(fileName: String) {
+        
+    }
+    
+    func speak(speakContent: String, rate: Float, pitchMultiplier: Float) {
+        
+    }
+    
+    func speakRandom(rate: Float, pitchMultiplier: Float) {
+        
     }
 }

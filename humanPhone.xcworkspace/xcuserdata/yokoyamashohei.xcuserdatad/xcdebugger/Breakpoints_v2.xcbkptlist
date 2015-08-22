@@ -2,4 +2,86 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "humanPhoneApp/ReacPhoneView.swift"
+            timestampString = "461848566.600846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "init(frame:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "humanPhoneApp/ReacPhoneView.swift"
+            timestampString = "461848591.170451"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "init(frame:nonRobot:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "humanPhoneApp/ReacPhoneView.swift"
+            timestampString = "461848592.639799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "humanPhoneApp.ReacPhoneView.__allocating_init (humanPhoneApp.ReacPhoneView.Type)(coder : ObjectiveC.NSCoder) -&gt; humanPhoneApp.ReacPhoneView"
+                  moduleName = "humanPhoneApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yokoyamashohei/Documents/Application/iOS/humanPhone/humanPhoneApp/ReacPhoneView.swift"
+                  timestampString = "461855188.233028"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "humanPhoneApp.ReacPhoneView.init (humanPhoneApp.ReacPhoneView.Type)(coder : ObjectiveC.NSCoder) -&gt; humanPhoneApp.ReacPhoneView"
+                  moduleName = "humanPhoneApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yokoyamashohei/Documents/Application/iOS/humanPhone/humanPhoneApp/ReacPhoneView.swift"
+                  timestampString = "461855188.233211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
